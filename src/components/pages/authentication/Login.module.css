@@ -1,0 +1,29 @@
+.background {
+	height: 100vh;
+	background-color: var(--background);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+.main_component {
+	background-color: var(--white);
+	padding: 2rem 1rem;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
+	margin-bottom: 30vh;
+	border-radius: 0.5rem;
+}
+.logo {
+	height: 11rem;
+	width: auto;
+	margin-bottom: 2rem;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+.form label {
+	text-align: left;
+}

@@ -1,0 +1,33 @@
+@import "./fonts.css";
+
+:root {
+	/*colors*/
+	--black: #000;
+	--white: #fff;
+	---color-main: #3fa9f5;
+	--color-secondary: #8cc63f;
+	--color-remove: #d40000;
+
+	--text: #777777;
+
+	--background-main: #f5f4f4;
+	--background-secondary: #d9d9d9;
+	--background-table: #e7e6e6;
+	--background-overlay: #4e4e4e;
+
+	--no-name: #7e7e7e;
+	--no-name-two: #021b29;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+	line-height: 1.4rem;
+	background-color: var(--background-main);
+}

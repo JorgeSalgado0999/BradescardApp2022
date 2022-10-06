@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useContext, useState, type Dispatch} from "react";
+import {Routes, Route, Link, BrowserRouter} from "react-router-dom";
+/* custom imports */
+import "./Global/css/flexboxgrid.css";
+import "./Global/css/GlobalStyles.css";
+
+import {UserProvider, UserType} from "context/UserContext";
+import {Routing} from "./Routing";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<UserProvider>
+			<BrowserRouter>
+				<Routing />
+			</BrowserRouter>
+		</UserProvider>
+	);
 }
 
 export default App;
