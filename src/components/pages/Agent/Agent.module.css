@@ -1,0 +1,49 @@
+/* header  */
+header {
+	height: 9rem;
+	width: 100%;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
+	border-bottom-left-radius: 0.7rem;
+	border-bottom-right-radius: 0.7rem;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: end;
+}
+
+.userInfo {
+	height: 100%;
+	width: auto;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.userPhoto {
+	height: 70%;
+	width: auto;
+	border-radius: 50%;
+}
+
+/* nav  */
+
+nav {
+	height: 40vh;
+	width: 10vw;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
+	border-radius: 1rem;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logoPhoto {
+	width: 90%;
+	height: auto;
+}
+
+nav ul {
+}

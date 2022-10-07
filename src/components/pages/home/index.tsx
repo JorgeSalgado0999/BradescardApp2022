@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 export const Home = () => {
 	return (
 		<div>
-			<h1>Happy Coast CRM</h1>
+			<h1>Compliance App For Bradescard</h1>
 			<Link to="/register">Registrarse</Link>
 			<br />
 			<Link to="/login">iniciar Sesión</Link>

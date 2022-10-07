@@ -4,7 +4,8 @@
 .container {
 	margin: auto;
 	padding: 0 2rem 0 2rem;
-	max-width: 80rem;
+	width: 100vw;
+	max-width: 160rem;
 }
 
 .row {
@@ -249,9 +250,11 @@
 }
 
 @media only screen and (min-width: 48em) {
+	/*
 	.container {
 		width: 46rem;
 	}
+	*/
 
 	.col-sm,
 	.col-sm-1,
@@ -464,9 +467,11 @@
 }
 
 @media only screen and (min-width: 62em) {
+	/*
 	.container {
 		width: 61rem;
 	}
+	*/
 
 	.col-md,
 	.col-md-1,
@@ -679,9 +684,11 @@
 }
 
 @media only screen and (min-width: 75em) {
+	/*
 	.container {
 		width: 71rem;
 	}
+	*/
 
 	.col-lg,
 	.col-lg-1,

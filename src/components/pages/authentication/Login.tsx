@@ -52,13 +52,13 @@ export const Login = () => {
 
 							<StyledInputSubmit type="submit" value="Iniciar Sesión" />
 						</form>
-						<nav>
+						<div>
 							<Link to="/admin">admin</Link>
 							<br />
-							<Link to="/agent">age</Link>
+							<Link to="/agent">agent</Link>
 							<br />
 							<Link to="/test">test</Link>
-						</nav>
+						</div>
 						{User ? (
 							<button onClick={logout}>Logout</button>
 						) : (
