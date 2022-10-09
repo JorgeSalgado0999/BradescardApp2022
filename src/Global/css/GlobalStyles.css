@@ -18,16 +18,31 @@
 	--no-name: #7e7e7e;
 	--no-name-two: #021b29;
 }
-
+*,
+*:before,
+*:after {
+	-webkit-box-sizing: inherit;
+	-moz-box-sizing: inherit;
+	box-sizing: inherit;
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
 html {
 	font-size: 10px;
 }
-
 body {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0;
+	border: 0;
 	margin: 0;
 	font-weight: normal;
 	line-height: 1.4rem;
 	background-color: var(--background-main);
+}
+
+.fullPage {
+	min-height: 100vh;
 }

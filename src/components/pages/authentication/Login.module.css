@@ -27,3 +27,23 @@
 .form label {
 	text-align: left;
 }
+
+/**/
+.temp {
+	display: flex;
+	flex-direction: column;
+}
+.temp a {
+	font-size: 3rem;
+	margin-bottom: 2rem;
+}
+.temp2 {
+	display: flex;
+	flex-direction: column;
+}
+button {
+	margin-bottom: 2rem;
+	font-size: 3rem;
+	background-color: cornsilk;
+	cursor: pointer;
+}

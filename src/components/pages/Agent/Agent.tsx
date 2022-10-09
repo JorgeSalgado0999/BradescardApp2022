@@ -19,9 +19,9 @@ export const Agent = () => {
 			</header>
 			{/* */}
 
-			<div className="row">
+			<div className="fullPage row">
 				{/* */}
-				<div className="col-md-2">
+				<div className={`col-md-2 ${styles.navContainer}`}>
 					<nav>
 						<ul>
 							<li>

@@ -27,10 +27,14 @@ header {
 }
 
 /* nav  */
-
+.navContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 nav {
-	height: 40vh;
-	width: 10vw;
+	height: 60vh;
+	width: 100%;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
 	border-radius: 1rem;
 
@@ -41,9 +45,12 @@ nav {
 }
 
 .logoPhoto {
-	width: 90%;
+	width: 100%;
 	height: auto;
 }
 
 nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
