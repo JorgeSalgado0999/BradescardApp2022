@@ -35,9 +35,31 @@ export const Agent = () => {
 					</nav>
 				</div>
 				{/* */}
-				<div className="col-md-10">
+				<div className="col-md-10 content-side">
 					{/* Aqui Va el contenido*/}
-					<h1>Titulo</h1>
+
+					<div className={styles.calendar}>
+						<h1>Calendario</h1>
+						<p>
+							Esta sección se construira al final de acuerdo a la planeación
+						</p>
+					</div>
+
+					{/* Aqui Va el contenido*/}
+					<div className="revision">
+						<h1>Últimas revisiones </h1>
+						<div className={`${styles.cardRevision} row`}>
+							<div className="col-md-3">
+								<img src={logo} alt="" className={styles.logoPhoto} />
+							</div>
+							<div className="col-md-9">
+								<p>Socio: info...</p>
+								<p>Tienda: info...</p>
+								<p>Fecha: info...</p>
+							</div>
+						</div>
+					</div>
+					{/* Aqui Va el contenido*/}
 				</div>
 				{/* */}
 			</div>

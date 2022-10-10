@@ -2,6 +2,7 @@
 header {
 	height: 9rem;
 	width: 100%;
+	background-color: #fff;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
 	border-bottom-left-radius: 0.7rem;
 	border-bottom-right-radius: 0.7rem;
@@ -31,17 +32,18 @@ header {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: -15vh;
 }
 nav {
-	height: 60vh;
+	height: 65vh;
 	width: 100%;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
 	border-radius: 1rem;
+	background-color: #fff;
 
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
 }
 
 .logoPhoto {
@@ -53,4 +55,9 @@ nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
+}
+
+/**/
+.calendar {
+	height: 30vh;
 }
