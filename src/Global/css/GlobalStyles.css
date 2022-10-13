@@ -4,10 +4,11 @@
 	/*colors*/
 	--black: #000;
 	--white: #fff;
-	---color-main: #3fa9f5;
-	--color-secondary: #8cc63f;
-	--color-remove: #d40000;
+	--color-main: #1a99d9;
+	--color-secondary: #a81e7e;
+	--color-danger: #cf2032;
 
+	--tittle: #4e4e4e;
 	--text: #777777;
 
 	--background-main: #f5f4f4;
@@ -17,6 +18,9 @@
 
 	--no-name: #7e7e7e;
 	--no-name-two: #021b29;
+
+	--border-radious: 1rem;
+	--border-radious-two: 0.5rem;
 }
 *,
 *:before,
@@ -48,5 +52,15 @@ body {
 }
 
 .content-side {
-	padding: 3rem 2rem;
+	padding: 3rem 0 3rem 2rem;
+}
+
+.navbar-side {
+	padding: 3rem 0rem 3rem 0;
+}
+
+.mainContainer {
+	background-color: var(--white);
+	padding: 2rem;
+	border-radius: var(--border-radious-two);
 }

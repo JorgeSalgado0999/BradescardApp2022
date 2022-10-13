@@ -1,0 +1,51 @@
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+.form label {
+	text-align: left;
+}
+
+.radioContainer {
+	display: flex;
+	flex-direction: row;
+	gap: 0.5rem;
+
+	margin-right: 2rem;
+}
+
+/*input*/
+/*
+form input[type="radio"] {
+	-webkit-appearance: none;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	appearance: none;
+	background-color: #fff;
+	margin: 0;
+	font: inherit;
+	color: currentColor;
+	width: 1.15em;
+	height: 1.15em;
+	border: 0.15em solid currentColor;
+	border-radius: 30%;
+	transform: translateY(-0.075em);
+	display: grid;
+	place-content: center;
+}
+*/
+
+.question {
+	display: flex;
+	flex-direction: column;
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.buttonContainer {
+	max-width: 300rem;
+	height: 30rem;
+	background-color: aquamarine;
+}

@@ -11,7 +11,7 @@
 	padding: 2rem 1rem;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
 	margin-bottom: 30vh;
-	border-radius: 0.5rem;
+	border-radius: var(--border-radious-two);
 }
 .logo {
 	height: 11rem;

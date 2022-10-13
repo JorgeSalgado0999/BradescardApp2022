@@ -2,7 +2,8 @@ import React, {useContext} from "react";
 import {Route, Routes} from "react-router-dom";
 
 import {NavBar} from "components/UI/organisms/navbar";
-import {Home, Login, Register, Admin, Agent} from "components/pages";
+import {Home, Login, Register, Admin, Agent, CheckList} from "components/pages";
+import {Main} from "components/templates";
 import {ProtectedRoute} from "./components/ProtectedRoute";
 
 import UserContext, {
@@ -35,9 +36,13 @@ export const Routing = () => {
 
 			{/* agent urls */}
 			<Route element={<ProtectedRoute isAllowed={!!User} />}>
-				<Route path="/agent/" element={<Agent />} />
-				<Route path="/agent/properties" element={<Register />} />
+				<Route path="agent" element={<Main />}>
+					<Route path="" element={<Agent />} />
+					<Route path="checklist" element={<CheckList />} />
+				</Route>
 			</Route>
+
+			<Route path="/*" element={<h1>404</h1>} />
 		</Routes>
 	);
 };

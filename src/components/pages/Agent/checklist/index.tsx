@@ -1,0 +1,102 @@
+import React from "react";
+import {
+	StyledInputSubmit,
+	StyledInputText,
+	StyledInputRadio,
+	StyledInputDate,
+} from "components/UI/atoms";
+
+import styles from "./CheckList.module.css";
+
+export const CheckList = () => {
+	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
+		event.preventDefault();
+		console.log("iniciando sesión");
+	};
+
+	return (
+		<div className="mainContainer row">
+			<div className="col-sm-12">
+				<h1>Nueva Revisión</h1>
+			</div>
+			{/* Starts Form*/}
+			<form className={`${styles.form} col-sm-12`} onSubmit={handleSubmit}>
+				{/* Starts Row */}
+				<div className={`${styles.question} row`}>
+					<h6 className="text-bold">1. Selecciona el Socio</h6>
+					<div className="row">
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Socio 1</p>
+							</label>
+						</div>
+
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Socio 2</p>
+							</label>
+						</div>
+
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Socio 3</p>
+							</label>
+						</div>
+					</div>
+				</div>
+				{/*Ends Row */}
+
+				{/* Starts Row */}
+				<div className={`${styles.question} row`}>
+					<h6 className="text-bold">2. Fecha en la que se realizó</h6>
+					<StyledInputDate id="start" name="trip-start" />
+				</div>
+				{/*Ends Row */}
+				{/* Starts Row */}
+				<div className={`${styles.question} row`}>
+					<h6 className="text-bold">
+						3. Selecciona la modalidad en la que se realizo
+					</h6>
+					<div className="row">
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="type" value="socio" />
+							<label>
+								<p className="p2">Presencial</p>
+							</label>
+						</div>
+
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="type" value="socio" />
+							<label>
+								<p className="p2">Remoto</p>
+							</label>
+						</div>
+					</div>
+				</div>
+				{/*Ends Row */}
+
+				<div className={`row between-xs`}>
+					<div className="col-sm-3">
+						<StyledInputSubmit
+							customType="primary"
+							type="submit"
+							value="Continuar"
+						/>
+					</div>
+					<div className="col-sm-3">
+						<StyledInputSubmit
+							customType="secondary"
+							type="submit"
+							value="Continuar"
+						/>
+					</div>
+					<div className="col-sm-3"></div>
+				</div>
+			</form>
+			{/* Close Form*/}
+		</div>
+	);
+};

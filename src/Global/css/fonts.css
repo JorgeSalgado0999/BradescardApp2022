@@ -1,8 +1,35 @@
 @font-face {
 	font-family: "GillSans";
-	src: url(./../../assets/font/Gill\ Sans.otf);
+	src: url(./../../assets/font/Gill\ Sans.otf) format("opentype");
+	font-weight: normal;
+	font-style: normal;
 }
-html {
+@font-face {
+	font-family: "GillSans";
+	src: url(./../../assets/font/Gill\ Sans\ Medium.otf) format("opentype");
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: "GillSans";
+	src: url(./../../assets/font/Gill\ Sans\ Bold.otf) format("opentype");
+	font-weight: 900;
+	font-style: normal;
+}
+:root {
+	/*Font Sizes*/
+	--h1: 3.6rem;
+	--h2: 3rem;
+	--h3: 2.8rem;
+	--h4: 2.6rem;
+	--h5: 2.4rem;
+	--h6: 2.2rem;
+	--p: 2rem;
+	--p2: 1.8rem;
+	--p3: 1.6rem;
+	--p4: 1.4rem;
+}
+html * {
 	font-family: "GillSans";
 }
 h1,
@@ -10,45 +37,61 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+p,
+.p1,
+.p2,
+.p3,
+.p4 {
 	color: var(--text);
-	font-weight: bold;
-	margin: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0.5rem 0 1rem 0;
 	border: 0;
+	font-weight: normal;
 }
 h1 {
-	font-size: 3.6rem;
+	font-size: var(--h1);
 }
 h2 {
-	font-size: 3rem;
+	font-size: var(--h2);
 }
 h3 {
-	font-size: 2.8rem;
+	font-size: var(--h3);
 }
 h4 {
-	font-size: 2.6rem;
+	font-size: var(--h4);
 }
 h5 {
-	font-size: 2.4rem;
+	font-size: var(--h5);
 }
 h6 {
-	font-size: 2rem;
+	font-size: var(--h6);
 }
 p {
-	font-size: 1.8rem;
+	font-size: var(--p);
 }
 .p2 {
-	font-size: 1.6rem;
+	font-size: var(--p2);
 }
 .p3 {
-	font-size: 1.4rem;
+	font-size: var(--p3);
 }
 .p4 {
-	font-size: 1.2rem;
+	font-size: var(--p4);
 }
 .text-bold {
 	font-weight: bold;
 }
 .text-center {
-	font-weight: bold;
+	text-align: center;
+}
+
+.highlight {
+	color: var(--tittle);
 }

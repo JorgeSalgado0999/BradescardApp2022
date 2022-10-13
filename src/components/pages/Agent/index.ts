@@ -1,3 +1,4 @@
-import {Agent} from "./Agent";
+import {Agent} from "./main/";
+import {CheckList} from "./checklist/";
 
-export {Agent};
+export {Agent, CheckList};

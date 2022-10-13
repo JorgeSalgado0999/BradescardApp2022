@@ -50,7 +50,11 @@ export const Login = () => {
 							<label className="p2 text-bold">Contraseña</label>
 							<StyledInputText name="name" />
 
-							<StyledInputSubmit type="submit" value="Iniciar Sesión" />
+							<StyledInputSubmit
+								customType="primary"
+								type="submit"
+								value="Iniciar Sesión"
+							/>
 						</form>
 						<div className={styles.temp}>
 							<Link to="/admin">admin</Link>

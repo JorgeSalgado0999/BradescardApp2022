@@ -38,7 +38,11 @@ export const Register = () => {
 							<label className="p2 text-bold">Rol de acceso</label>
 							<StyledInputText name="name" />
 
-							<StyledInputSubmit type="submit" value="Iniciar Sesión" />
+							<StyledInputSubmit
+								customType="primary"
+								type="submit"
+								value="Iniciar Sesión"
+							/>
 						</form>
 					</div>
 				</div>

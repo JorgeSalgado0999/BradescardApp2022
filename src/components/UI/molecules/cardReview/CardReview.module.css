@@ -1,0 +1,22 @@
+.cardReview {
+	height: 10rem;
+}
+.cardContent {
+	width: 95%;
+	height: 100%;
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
+	border-radius: var(--border-radious);
+	background-color: var(--white);
+	padding: 0.5rem;
+	display: flex;
+}
+.cardContent div {
+	height: 100%;
+	width: 100%;
+	padding: 0;
+}
+
+.cardImage {
+	width: 90%;
+	border-radius: 50%;
+}
