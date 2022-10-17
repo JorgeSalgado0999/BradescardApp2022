@@ -1,4 +1,3 @@
-import {PropsWithChildren} from "react";
 import styled, {css} from "styled-components";
 
 export const StyledInputText = styled.input.attrs({

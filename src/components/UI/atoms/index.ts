@@ -5,4 +5,15 @@ import {
 	StyledInputSubmit,
 } from "./StyledInputs";
 
-export {StyledInputText, StyledInputRadio, StyledInputDate, StyledInputSubmit};
+import {NavbarLink} from "./StyledLink";
+
+import {MenuItem} from "./menuItem";
+
+export {
+	StyledInputText,
+	StyledInputRadio,
+	StyledInputDate,
+	StyledInputSubmit,
+	MenuItem,
+	NavbarLink,
+};

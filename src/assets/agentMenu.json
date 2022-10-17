@@ -1,0 +1,26 @@
+[
+	{
+		"pos": 0,
+		"text": "Inicio",
+		"icon": "home",
+		"route": "/agent"
+	},
+	{
+		"pos": 1,
+		"text": "Nueva",
+		"icon": "add",
+		"route": "/agent/checklist"
+	},
+	{
+		"pos": 2,
+		"text": "Subir",
+		"icon": "upload",
+		"route": "/agent/upload"
+	},
+	{
+		"pos": 3,
+		"text": "Revisiones",
+		"icon": "list",
+		"route": "/agent/history"
+	}
+]

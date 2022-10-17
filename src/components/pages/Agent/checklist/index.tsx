@@ -7,11 +7,15 @@ import {
 } from "components/UI/atoms";
 
 import styles from "./CheckList.module.css";
+import {useNavigate} from "react-router-dom";
 
 export const CheckList = () => {
+	const navigate = useNavigate();
+
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
-		console.log("iniciando sesión");
+		console.log("iniciando preguntas...");
+		navigate("/agent/questions/1", {replace: true});
 	};
 
 	return (
@@ -90,7 +94,7 @@ export const CheckList = () => {
 						<StyledInputSubmit
 							customType="secondary"
 							type="submit"
-							value="Continuar"
+							value="Cancelar"
 						/>
 					</div>
 					<div className="col-sm-3"></div>

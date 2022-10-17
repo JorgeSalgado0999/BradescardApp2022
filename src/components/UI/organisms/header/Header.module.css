@@ -10,6 +10,8 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: end;
+
+	padding: 0.7rem 1.5rem;
 }
 
 .userInfo {

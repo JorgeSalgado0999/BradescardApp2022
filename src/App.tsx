@@ -5,7 +5,7 @@ import "./Global/css/flexboxgrid.css";
 import "./Global/css/GlobalStyles.css";
 
 import {UserProvider, UserType} from "context/UserContext";
-import {Routing} from "./Routing";
+import {Routing} from "./routes/Routing";
 
 function App() {
 	return (

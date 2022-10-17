@@ -1,0 +1,22 @@
+.menuItemContainer {
+	height: 3rem;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 1rem;
+	padding: 0 1rem;
+	border-radius: var(--border-radious);
+	margin-bottom: 1rem;
+}
+
+.active {
+	background-color: var(--color-main);
+}
+
+.active svg path {
+	fill: var(--white);
+}
+
+.active p {
+	color: var(--white);
+}
