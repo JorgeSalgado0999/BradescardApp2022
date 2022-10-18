@@ -39,7 +39,7 @@ export const Login = () => {
 
 	return (
 		<div className={`container ${styles.background}`}>
-			<div className="row center-xs">
+			<div className="row center-xs middle-xs">
 				<div className={`col-xs-11 col-sm-7 col-md-6 ${styles.main_component}`}>
 					<div className="col-xs-12">
 						<img src={logo} alt="" className={styles.logo} />

@@ -1,10 +1,50 @@
 {
 	"page1": [
-		{"question": "¿Soy Uno?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"}
+		{
+			"question": "¿Soy Uno?",
+			"answ1": "",
+			"answ2": "",
+			"answ3": "",
+			"answ4": "",
+			"answ5": "",
+			"answ6": ""
+		},
+		{
+			"question": "¿?",
+			"answ1": "",
+			"answ2": "",
+			"answ3": "",
+			"answ4": "",
+			"answ5": "",
+			"answ6": ""
+		},
+		{
+			"question": "¿?",
+			"answ1": "",
+			"answ2": "",
+			"answ3": "",
+			"answ4": "",
+			"answ5": "",
+			"answ6": ""
+		},
+		{
+			"question": "¿?",
+			"answ1": "",
+			"answ2": "",
+			"answ3": "",
+			"answ4": "",
+			"answ5": "",
+			"answ6": ""
+		},
+		{
+			"question": "¿?",
+			"answ1": "",
+			"answ2": "",
+			"answ3": "",
+			"answ4": "",
+			"answ5": "",
+			"answ6": ""
+		}
 	],
 	"page2": [
 		{"question": "¿Soy Dos?"},

@@ -82,6 +82,34 @@ export const CheckList = () => {
 				</div>
 				{/*Ends Row */}
 
+				{/*Starts Row */}
+				<div className={`${styles.question} row`}>
+					<h6 className="text-bold">4. Selecciona el tipo de Revisión</h6>
+					<div className="row">
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Rutina</p>
+							</label>
+						</div>
+
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Fraude</p>
+							</label>
+						</div>
+
+						<div className={styles.radioContainer}>
+							<StyledInputRadio id="socio" name="socio" value="socio" />
+							<label>
+								<p className="p2">Alerta de Crédito</p>
+							</label>
+						</div>
+					</div>
+				</div>
+				{/*Ends Row */}
+
 				<div className={`row between-xs`}>
 					<div className="col-sm-3">
 						<StyledInputSubmit
