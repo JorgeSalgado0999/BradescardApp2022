@@ -1,77 +1,37 @@
 {
 	"page1": [
-		{
-			"question": "¿Soy Uno?",
-			"answ1": "",
-			"answ2": "",
-			"answ3": "",
-			"answ4": "",
-			"answ5": "",
-			"answ6": ""
-		},
-		{
-			"question": "¿?",
-			"answ1": "",
-			"answ2": "",
-			"answ3": "",
-			"answ4": "",
-			"answ5": "",
-			"answ6": ""
-		},
-		{
-			"question": "¿?",
-			"answ1": "",
-			"answ2": "",
-			"answ3": "",
-			"answ4": "",
-			"answ5": "",
-			"answ6": ""
-		},
-		{
-			"question": "¿?",
-			"answ1": "",
-			"answ2": "",
-			"answ3": "",
-			"answ4": "",
-			"answ5": "",
-			"answ6": ""
-		},
-		{
-			"question": "¿?",
-			"answ1": "",
-			"answ2": "",
-			"answ3": "",
-			"answ4": "",
-			"answ5": "",
-			"answ6": ""
-		}
+		{"question": "¿Pregunta 1?", "key": "clave1"},
+		{"question": "¿Pregunta 2?", "key": "clave2"},
+		{"question": "¿Pregunta 3?", "key": "clave3"},
+		{"question": "¿Pregunta 4?", "key": "clave4"},
+		{"question": "¿Pregunta 5?", "key": "clave5"}
 	],
 	"page2": [
-		{"question": "¿Soy Dos?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"}
+		{"question": "¿Pregunta 6?", "key": "clave"},
+		{"question": "¿Pregunta 7?", "key": "clave"},
+		{"question": "¿Pregunta 8?", "key": "clave"},
+		{"question": "¿Pregunta 9?", "key": "clave"},
+		{"question": "¿Pregunta 10?", "key": "clave"}
 	],
 	"page3": [
-		{"question": "¿Soy Tres?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"}
+		{"question": "¿Pregunta 11?", "key": "clave"},
+		{"question": "¿Pregunta 12?", "key": "clave"},
+		{"question": "¿Pregunta 13?", "key": "clave"},
+		{"question": "¿Pregunta 14?", "key": "clave"},
+		{"question": "¿Pregunta 15?", "key": "clave"}
 	],
 	"page4": [
-		{"question": "¿Soy Cuatro?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"}
+		{"question": "¿Pregunta 16?", "key": "clave"},
+		{"question": "¿Pregunta 17?", "key": "clave"},
+		{"question": "¿Pregunta 18?", "key": "clave"},
+		{"question": "¿Pregunta 19?", "key": "clave"},
+		{"question": "¿Pregunta 20?", "key": "clave"}
 	],
 	"page5": [
-		{"question": "¿Soy Cinco?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"},
-		{"question": "¿?"}
+		{"question": "¿Pregunta 21?", "key": "clave"},
+		{"question": "¿Pregunta 22?", "key": "clave"},
+		{"question": "¿Pregunta 23?", "key": "clave"},
+		{"question": "¿Pregunta 24?", "key": "clave"},
+		{"question": "¿Pregunta 25?", "key": "clave"}
 	]
 }

@@ -13,14 +13,14 @@
 	},
 	{
 		"pos": 2,
-		"text": "Subir",
-		"icon": "upload",
-		"route": "/agent/upload"
-	},
-	{
-		"pos": 3,
 		"text": "Revisiones",
 		"icon": "list",
 		"route": "/agent/history"
+	},
+	{
+		"pos": 3,
+		"text": "Extra",
+		"icon": "list",
+		"route": "/agent/"
 	}
 ]

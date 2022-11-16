@@ -78,6 +78,7 @@ export const StyledInputDate = styled.input.attrs({
 	type: "date",
 })`
 	max-width: 15rem;
+	height: 3rem;
 	text-align: center;
 	border: none;
 	background-color: transparent;

@@ -1,0 +1,15 @@
+.mainHistory {
+	height: 100%;
+}
+
+.historySelect {
+	margin-bottom: 0 !important;
+}
+
+.submitButton {
+	width: 9rem;
+}
+
+.submitButton input {
+	margin-bottom: 0 !important;
+}

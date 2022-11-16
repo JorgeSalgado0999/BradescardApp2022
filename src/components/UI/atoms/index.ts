@@ -4,6 +4,8 @@ import {
 	StyledInputDate,
 	StyledInputSubmit,
 } from "./StyledInputs";
+import {StyledTextArea} from "./StyledTextArea";
+import {StyledSelect} from "./StyledSelect";
 
 import {NavbarLink} from "./StyledLink";
 
@@ -14,6 +16,8 @@ export {
 	StyledInputRadio,
 	StyledInputDate,
 	StyledInputSubmit,
+	StyledSelect,
+	StyledTextArea,
 	MenuItem,
 	NavbarLink,
 };

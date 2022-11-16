@@ -9,10 +9,10 @@ export const CardReview = () => {
 				<div className={`col-sm-3`}>
 					<img src={socio} alt="" className={styles.cardImage} />
 				</div>
-				<div className="col-sm-9">
-					<p>Socio: info...</p>
-					<p>Tienda: info...</p>
-					<p>Fecha: info...</p>
+				<div className={`col-sm-9 ${styles.cardData}`}>
+					<p>Socio: Socio 1</p>
+					<p>Tienda: 3</p>
+					<p>Fecha: 10/10/2022</p>
 				</div>
 			</div>
 		</div>

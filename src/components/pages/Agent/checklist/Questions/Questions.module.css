@@ -1,0 +1,13 @@
+.formBody {
+	overflow-x: scroll;
+}
+
+.questionBody {
+	display: flex;
+	flex-direction: column;
+}
+
+.questionsHeader {
+	display: flex;
+	gap: 3rem;
+}

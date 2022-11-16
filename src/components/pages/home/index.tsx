@@ -8,15 +8,6 @@ export const Home = () => {
 			<Link to="/register">Registrarse</Link>
 			<br />
 			<Link to="/login">iniciar Sesión</Link>
-			<div className="row">
-				<div className="col-md-6">
-					<h1>Hola Mundo</h1>
-				</div>
-
-				<div className="col-md-6">
-					<h1>Hola Mundo</h1>
-				</div>
-			</div>
 		</div>
 	);
 };

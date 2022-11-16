@@ -10,6 +10,7 @@ import {
 	Agent,
 	CheckList,
 	Questions,
+	History,
 } from "components/pages";
 import {Main} from "components/templates";
 import {ProtectedRoute} from "./ProtectedRoute";
@@ -48,8 +49,7 @@ export const Routing = () => {
 					<Route path="" element={<Agent />} />
 					<Route path="checklist" element={<CheckList />} />
 					<Route path="questions/:page" element={<Questions />} />
-					<Route path="upload" element={<Questions />} />
-					<Route path="history" element={<Questions />} />
+					<Route path="history" element={<History />} />
 				</Route>
 			</Route>
 

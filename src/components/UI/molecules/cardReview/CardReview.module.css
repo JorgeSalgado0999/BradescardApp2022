@@ -1,5 +1,6 @@
 .cardReview {
 	height: 10rem;
+	cursor: pointer;
 }
 .cardContent {
 	width: 95%;
@@ -8,15 +9,21 @@
 	border-radius: var(--border-radious);
 	background-color: var(--white);
 	padding: 0.5rem;
-	display: flex;
 }
 .cardContent div {
 	height: 100%;
 	width: 100%;
 	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .cardImage {
 	width: 90%;
 	border-radius: 50%;
+}
+
+.cardData {
+	gap: 0.7rem;
 }
