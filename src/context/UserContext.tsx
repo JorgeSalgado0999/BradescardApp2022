@@ -3,6 +3,7 @@ import React, {createContext, useState, ReactNode, type Dispatch} from "react";
 export type UserType = {
 	id: number;
 	name: string;
+	rol: string;
 	permissions: string[];
 } | null;
 
@@ -21,7 +22,8 @@ const Context = createContext({});
 
 const INITIAL_USER: UserType = {
 	id: 0,
-	name: "string",
+	name: "",
+	rol: "",
 	permissions: [""],
 };
 

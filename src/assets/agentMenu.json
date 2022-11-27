@@ -16,11 +16,5 @@
 		"text": "Revisiones",
 		"icon": "list",
 		"route": "/agent/history"
-	},
-	{
-		"pos": 3,
-		"text": "Extra",
-		"icon": "list",
-		"route": "/agent/"
 	}
 ]

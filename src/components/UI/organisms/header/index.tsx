@@ -1,15 +1,18 @@
-import React from "react";
+import React, {useContext} from "react";
 import styles from "./Header.module.css";
 import {logo, user, socio} from "assets";
+import UserContext, {UserContextType} from "context/UserContext";
 
 export const Header = () => {
+	const {User, SetUser} = useContext(UserContext) as UserContextType;
+
 	return (
 		<header className="row">
 			<div className={styles.userInfo}>
 				<div className={styles.info}>
-					<h5>Jorge Salgado</h5>
+					<h5>{User!.name}</h5>
 					<h5>
-						<span>Agente</span>
+						<span>{User!.rol}</span>
 					</h5>
 				</div>
 				<img src={user} alt="" className={styles.userPhoto} />
