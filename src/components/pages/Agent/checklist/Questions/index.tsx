@@ -35,35 +35,35 @@ export const Questions = () => {
 			{
 				status: "",
 				comments: "",
-				planning: "",
+				plan: "",
 				date: "",
 				breach: "",
 			},
 			{
 				status: "",
 				comments: "",
-				planning: "",
+				plan: "",
 				date: "",
 				breach: "",
 			},
 			{
 				status: "",
 				comments: "",
-				planning: "",
+				plan: "",
 				date: "",
 				breach: "",
 			},
 			{
 				status: "",
 				comments: "",
-				planning: "",
+				plan: "",
 				date: "",
 				breach: "",
 			},
 			{
 				status: "",
 				comments: "",
-				planning: "",
+				plan: "",
 				date: "",
 				breach: "",
 			},
@@ -80,17 +80,44 @@ export const Questions = () => {
 		e: React.ChangeEvent<HTMLSelectElement>,
 		index: number
 	) {
-		console.log(index);
-
 		let temp: any = [...pageAnswers];
-		temp[index][e.target.name] = e.target.value;
+		temp[index]["status"] = e.target.value;
 		setPageAnswers(temp);
-		console.log(pageAnswers);
+	}
+	function handleComents(
+		e: React.ChangeEvent<HTMLTextAreaElement>,
+		index: number
+	) {
+		let temp: any = [...pageAnswers];
+		temp[index]["comments"] = e.target.value;
+		setPageAnswers(temp);
+	}
+	function handleplan(
+		e: React.ChangeEvent<HTMLTextAreaElement>,
+		index: number
+	) {
+		let temp: any = [...pageAnswers];
+		temp[index]["plan"] = e.target.value;
+		setPageAnswers(temp);
+	}
+	function handleDate(e: React.ChangeEvent<HTMLInputElement>, index: number) {
+		let temp: any = [...pageAnswers];
+		temp[index]["date"] = e.target.value;
+		setPageAnswers(temp);
+	}
+	function handleBreach(
+		e: React.ChangeEvent<HTMLSelectElement>,
+		index: number
+	) {
+		let temp: any = [...pageAnswers];
+		temp[index]["breach"] = e.target.value;
+		setPageAnswers(temp);
 	}
 
 	const submit = (e: any) => {
 		e.preventDefault();
-
+		console.log(pageAnswers);
+		localStorage.setItem(String(num), JSON.stringify(pageAnswers));
 		navigate(`/agent/questions/${num + 1}`, {replace: true});
 	};
 
@@ -123,7 +150,7 @@ export const Questions = () => {
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledTextArea
-										onChange={(e) => setComments(e.target.value)}
+										onChange={(e) => handleComents(e, index)}
 										placeholder="Comentarios"
 									/>
 								</div>
@@ -132,7 +159,7 @@ export const Questions = () => {
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledTextArea
-										onChange={(e) => setPlanning(e.target.value)}
+										onChange={(e) => handleplan(e, index)}
 										placeholder="Plan de Acción"
 									/>
 								</div>
@@ -140,7 +167,7 @@ export const Questions = () => {
 
 								{/* Qst1 */}
 								<div className="questionContainer">
-									<StyledInputDate onChange={(e) => setDate(e.target.value)} />
+									<StyledInputDate onChange={(e) => handleDate(e, index)} />
 								</div>
 								{/* Qst1 */}
 
@@ -148,7 +175,7 @@ export const Questions = () => {
 								<div className="questionContainer">
 									<StyledSelect
 										defaultValue={"default"}
-										onChange={(e) => setBreach(e.target.value)}
+										onChange={(e) => handleBreach(e, index)}
 									>
 										<option value="default" disabled>
 											-- Incumplimiento --
