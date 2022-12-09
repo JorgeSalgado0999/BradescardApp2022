@@ -1,6 +1,6 @@
 import logo from "./img/logo.png";
 import user from "./img/user.png";
-import socio from "./img/socio.jpg";
+import socio from "./img/socio.png";
 import {IconHome} from "./icons/IconHome";
 import {IconAdd} from "./icons/IconAdd";
 import {IconUpload} from "./icons/IconUpload";
