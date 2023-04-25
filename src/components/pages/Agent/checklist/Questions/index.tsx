@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useReducer, useState} from "react";
 import {Link, useNavigate, useParams} from "react-router-dom";
 import styles from "./Questions.module.css";
 import {
@@ -8,16 +8,10 @@ import {
 	StyledSelect,
 	StyledTextArea,
 } from "components/UI/atoms";
+import {initial, reducer} from "./reducer";
 
 export const Questions = () => {
 	const navigate = useNavigate();
-	const [status, setStatus] = useState("");
-	const [comments, setComments] = useState("Comentarios");
-	const [planning, setPlanning] = useState("Plan");
-	const [date, setDate] = useState("");
-	const [breach, setBreach] = useState("");
-
-	const [pageAnswers, setPageAnswers] = useState<any[]>([]);
 
 	const [sumbitTxt, setSubmitTxt] = useState("continuar");
 	let {page} = useParams();
@@ -25,99 +19,44 @@ export const Questions = () => {
 	let data = require("assets/checklist.json");
 	let actualPage = "page" + page;
 	let dataPage = data[actualPage];
+	const [fields, dispatch] = useReducer(reducer, initial);
 
 	useEffect(() => {
 		actualPage = "page" + page;
 		dataPage = data[actualPage];
 		setInputFields(dataPage);
 
-		setPageAnswers([
-			{
-				status: "",
-				comments: "",
-				plan: "",
-				date: "",
-				breach: "",
-			},
-			{
-				status: "",
-				comments: "",
-				plan: "",
-				date: "",
-				breach: "",
-			},
-			{
-				status: "",
-				comments: "",
-				plan: "",
-				date: "",
-				breach: "",
-			},
-			{
-				status: "",
-				comments: "",
-				plan: "",
-				date: "",
-				breach: "",
-			},
-			{
-				status: "",
-				comments: "",
-				plan: "",
-				date: "",
-				breach: "",
-			},
-		]);
+		dataPage.map((question: any, index: any) => {
+			dispatch({
+				type: "createQuestion",
+				value: {
+					id: index,
+					question: question.question,
+					category: {
+						id: 0,
+						category: "categoria",
+					},
+					answer: {
+						questionId: 0,
+						status: "",
+						comments: "",
+						plan: "",
+						date: new Date(),
+						breach: "",
+					},
+				},
+			});
+		});
 
-		console.log(pageAnswers);
-
-		page == "5" ? setSubmitTxt("Subir") : setSubmitTxt("continuar");
+		page === "5" ? setSubmitTxt("Subir") : setSubmitTxt("continuar");
 	}, [page]);
 
 	const [inputFields, setInputFields] = useState(dataPage);
 
-	function handleStatus(
-		e: React.ChangeEvent<HTMLSelectElement>,
-		index: number
-	) {
-		let temp: any = [...pageAnswers];
-		temp[index]["status"] = e.target.value;
-		setPageAnswers(temp);
-	}
-	function handleComents(
-		e: React.ChangeEvent<HTMLTextAreaElement>,
-		index: number
-	) {
-		let temp: any = [...pageAnswers];
-		temp[index]["comments"] = e.target.value;
-		setPageAnswers(temp);
-	}
-	function handleplan(
-		e: React.ChangeEvent<HTMLTextAreaElement>,
-		index: number
-	) {
-		let temp: any = [...pageAnswers];
-		temp[index]["plan"] = e.target.value;
-		setPageAnswers(temp);
-	}
-	function handleDate(e: React.ChangeEvent<HTMLInputElement>, index: number) {
-		let temp: any = [...pageAnswers];
-		temp[index]["date"] = e.target.value;
-		setPageAnswers(temp);
-	}
-	function handleBreach(
-		e: React.ChangeEvent<HTMLSelectElement>,
-		index: number
-	) {
-		let temp: any = [...pageAnswers];
-		temp[index]["breach"] = e.target.value;
-		setPageAnswers(temp);
-	}
-
 	const submit = (e: any) => {
 		e.preventDefault();
-		console.log(pageAnswers);
-		localStorage.setItem(String(num), JSON.stringify(pageAnswers));
+		// console.log(pageAnswers);
+		// localStorage.setItem(String(num), JSON.stringify(pageAnswers));
 		navigate(`/agent/questions/${num + 1}`, {replace: true});
 	};
 
@@ -134,8 +73,18 @@ export const Questions = () => {
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledSelect
+										customType="primary"
 										defaultValue={"default"}
-										onChange={(e) => handleStatus(e, index)}
+										onChange={(e) =>
+											dispatch({
+												type: "editQuestion",
+												value: {
+													index: 1,
+													field: "answer",
+													data: "",
+												},
+											})
+										}
 									>
 										<option value="default" disabled>
 											-- Estatus --
@@ -150,7 +99,16 @@ export const Questions = () => {
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledTextArea
-										onChange={(e) => handleComents(e, index)}
+										onChange={(e) =>
+											dispatch({
+												type: "editQuestion",
+												value: {
+													index: 1,
+													field: "answer",
+													data: "",
+												},
+											})
+										}
 										placeholder="Comentarios"
 									/>
 								</div>
@@ -159,7 +117,16 @@ export const Questions = () => {
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledTextArea
-										onChange={(e) => handleplan(e, index)}
+										onChange={(e) =>
+											dispatch({
+												type: "editQuestion",
+												value: {
+													index: 1,
+													field: "answer",
+													data: "",
+												},
+											})
+										}
 										placeholder="Plan de Acción"
 									/>
 								</div>
@@ -167,15 +134,36 @@ export const Questions = () => {
 
 								{/* Qst1 */}
 								<div className="questionContainer">
-									<StyledInputDate onChange={(e) => handleDate(e, index)} />
+									<StyledInputDate
+										onChange={(e) =>
+											dispatch({
+												type: "editQuestion",
+												value: {
+													index: 1,
+													field: "answer",
+													data: "",
+												},
+											})
+										}
+									/>
 								</div>
 								{/* Qst1 */}
 
 								{/* Qst1 */}
 								<div className="questionContainer">
 									<StyledSelect
+										customType="primary"
 										defaultValue={"default"}
-										onChange={(e) => handleBreach(e, index)}
+										onChange={(e) =>
+											dispatch({
+												type: "editQuestion",
+												value: {
+													index: 1,
+													field: "answer",
+													data: "",
+												},
+											})
+										}
 									>
 										<option value="default" disabled>
 											-- Incumplimiento --

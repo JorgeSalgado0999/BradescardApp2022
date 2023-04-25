@@ -11,6 +11,10 @@ import {
 	CheckList,
 	Questions,
 	History,
+	Partners,
+	Agents,
+	CreateAgent,
+	CreatePartner,
 } from "components/pages";
 import {Main} from "components/templates";
 import {ProtectedRoute} from "./ProtectedRoute";
@@ -39,8 +43,14 @@ export const Routing = () => {
 					/>
 				}
 			>
-				<Route path="/admin/" element={<Admin />} />
-				<Route path="/admin/properties" element={<Register />} />
+				<Route path="admin" element={<Main />}>
+					<Route path="" element={<Admin />} />
+					<Route path="agents" element={<Agents />} />
+					<Route path="agents/create" element={<CreateAgent />} />
+					<Route path="partners" element={<Partners />} />
+					<Route path="partners/create" element={<CreatePartner />} />
+					<Route path="history" element={<History />} />
+				</Route>
 			</Route>
 
 			{/* agent urls */}

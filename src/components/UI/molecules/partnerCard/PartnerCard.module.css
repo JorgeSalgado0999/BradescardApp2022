@@ -1,0 +1,31 @@
+.cardContainer {
+	height: 10rem;
+	width: 30rem;
+
+	padding: 1rem;
+	border-radius: var(--br-one);
+	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.photoContainer {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.photo {
+	height: 100%;
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;
+	border: 2px solid green;
+}
+
+.data {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+}

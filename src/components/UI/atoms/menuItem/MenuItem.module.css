@@ -5,7 +5,7 @@
 	align-items: center;
 	gap: 1rem;
 	padding: 0 1rem;
-	border-radius: var(--border-radious);
+	border-radius: var(--br-two);
 	margin-bottom: 1rem;
 }
 

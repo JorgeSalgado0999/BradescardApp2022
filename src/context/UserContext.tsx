@@ -3,7 +3,7 @@ import React, {createContext, useState, ReactNode, type Dispatch} from "react";
 export type UserType = {
 	id: number;
 	name: string;
-	rol: string;
+	role: string;
 	permissions: string[];
 } | null;
 
@@ -23,12 +23,12 @@ const Context = createContext({});
 const INITIAL_USER: UserType = {
 	id: 0,
 	name: "",
-	rol: "",
+	role: "",
 	permissions: [""],
 };
 
 export const UserProvider = ({children}: Props) => {
-	const [User, SetUser] = useState<UserType>(null);
+	const [User, SetUser] = useState<UserType>(INITIAL_USER);
 
 	return (
 		<Context.Provider value={{User, SetUser}}>{children}</Context.Provider>

@@ -12,7 +12,7 @@ export const Header = () => {
 				<div className={styles.info}>
 					<h5>{User!.name}</h5>
 					<h5>
-						<span>{User!.rol}</span>
+						<span>{User!.role}</span>
 					</h5>
 				</div>
 				<img src={user} alt="" className={styles.userPhoto} />

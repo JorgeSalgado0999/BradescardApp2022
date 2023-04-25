@@ -24,7 +24,7 @@ export const History = () => {
 			</div>
 
 			<form className="row mb-3  middle-xs" onSubmit={handleSubmit}>
-				<StyledSelect className={styles.historySelect}>
+				<StyledSelect customType="primary" className={styles.historySelect}>
 					<option value="socio" disabled>
 						-- Selecciona el Socio --
 					</option>
@@ -33,7 +33,7 @@ export const History = () => {
 					<option value="socio">Socio 3</option>
 				</StyledSelect>
 
-				<StyledSelect className={styles.historySelect}>
+				<StyledSelect customType="primary" className={styles.historySelect}>
 					<option value="socio" disabled>
 						-- Selecciona el tipo --
 					</option>
@@ -42,7 +42,7 @@ export const History = () => {
 					<option value="socio">Alerta</option>
 				</StyledSelect>
 
-				<StyledSelect className={styles.historySelect}>
+				<StyledSelect customType="primary" className={styles.historySelect}>
 					<option value="socio" disabled>
 						-- Selecciona Tiempo --
 					</option>

@@ -11,6 +11,11 @@ import {useNavigate} from "react-router-dom";
 
 export const CheckList = () => {
 	const navigate = useNavigate();
+	const [reviewType, setReviewType] = React.useState("rutine");
+
+	const ReviewTypeChange = (value: string) => {
+		setReviewType(value);
+	};
 
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
@@ -88,23 +93,47 @@ export const CheckList = () => {
 						<h6 className="text-bold">4. Selecciona el tipo de Revisión</h6>
 						<div className="row">
 							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
+								<StyledInputRadio
+									id="socio"
+									name="socio"
+									value="rutine"
+									checked={reviewType === "rutine"}
+									onChange={() => ReviewTypeChange("rutine")}
+								/>
 								<label>
-									<p className="p2">Rutina</p>
+									<p className="p2" onClick={() => ReviewTypeChange("rutine")}>
+										Rutina
+									</p>
 								</label>
 							</div>
 
 							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
+								<StyledInputRadio
+									id="socio"
+									name="socio"
+									value="fraud"
+									checked={reviewType === "fraud"}
+									onChange={() => ReviewTypeChange("fraud")}
+								/>
 								<label>
-									<p className="p2">Fraude</p>
+									<p className="p2" onClick={() => ReviewTypeChange("fraud")}>
+										Fraude
+									</p>
 								</label>
 							</div>
 
 							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
+								<StyledInputRadio
+									id="socio"
+									name="socio"
+									value="alert"
+									checked={reviewType === "alert"}
+									onChange={() => ReviewTypeChange("alert")}
+								/>
 								<label>
-									<p className="p2">Alerta de Crédito</p>
+									<p className="p2" onClick={() => ReviewTypeChange("alert")}>
+										Alerta de Crédito
+									</p>
 								</label>
 							</div>
 						</div>

@@ -3,7 +3,7 @@ nav {
 	height: 55vh;
 	width: 100%;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
-	border-radius: var(--border-radious);
+	border-radius: var(--br-two);
 	background-color: #fff;
 	display: flex;
 	flex-direction: row;

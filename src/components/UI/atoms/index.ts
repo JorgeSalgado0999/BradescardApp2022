@@ -11,6 +11,9 @@ import {NavbarLink} from "./StyledLink";
 
 import {MenuItem} from "./menuItem";
 
+import {Button} from "./button";
+import {Input} from "./input";
+
 export {
 	StyledInputText,
 	StyledInputRadio,
@@ -20,4 +23,6 @@ export {
 	StyledTextArea,
 	MenuItem,
 	NavbarLink,
+	Button,
+	Input,
 };

@@ -10,7 +10,7 @@
 	background-color: var(--white);
 	padding: 2rem 1rem;
 	box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.09);
-	border-radius: var(--border-radious-two);
+	border-radius: var(--br-one);
 }
 .logo {
 	height: 11rem;

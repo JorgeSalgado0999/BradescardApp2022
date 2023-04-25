@@ -1,0 +1,26 @@
+[
+	{
+		"pos": 0,
+		"text": "Inicio",
+		"icon": "home",
+		"route": "/admin"
+	},
+	{
+		"pos": 1,
+		"text": "Revisiones",
+		"icon": "add",
+		"route": "/admin/history"
+	},
+	{
+		"pos": 2,
+		"text": "Socios",
+		"icon": "list",
+		"route": "/admin/partners"
+	},
+	{
+		"pos": 3,
+		"text": "Agentes",
+		"icon": "list",
+		"route": "/admin/agents"
+	}
+]

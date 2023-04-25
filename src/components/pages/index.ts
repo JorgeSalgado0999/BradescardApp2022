@@ -1,8 +1,21 @@
 import {Home} from "components/pages/home";
 import {Login} from "components/pages/authentication/Login";
 import {Register} from "components/pages/authentication/Register";
-import {Admin} from "./admin/Admin";
-import {Agent} from "./Agent";
-import {CheckList, Questions, History} from "./Agent";
+import {Agent, CheckList, Questions} from "./Agent";
+import {Admin, Agents, Partners, CreateAgent, CreatePartner} from "./admin/";
+import {History} from "./shared";
 
-export {Home, Login, Register, Admin, Agent, CheckList, Questions, History};
+export {
+	Home,
+	Login,
+	Register,
+	Agent,
+	CheckList,
+	Questions,
+	History,
+	Admin,
+	Agents,
+	CreateAgent,
+	Partners,
+	CreatePartner,
+};

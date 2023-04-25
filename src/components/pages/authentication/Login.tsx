@@ -16,15 +16,15 @@ export const Login = () => {
 		SetUser({
 			id: 1,
 			name: "Jorge Salgado",
-			rol: "Agente",
+			role: "Agente",
 			permissions: ["agent"],
 		});
 	};
 	const loginAdmin = () => {
 		SetUser({
 			id: 1,
-			name: "Jhon",
-			rol: "Admin",
+			name: "Jorge Salgado",
+			role: "Admin",
 			permissions: ["admin"],
 		});
 	};

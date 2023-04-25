@@ -4,7 +4,9 @@
 		{"question": "¿Pregunta 2?", "key": "clave2"},
 		{"question": "¿Pregunta 3?", "key": "clave3"},
 		{"question": "¿Pregunta 4?", "key": "clave4"},
-		{"question": "¿Pregunta 5?", "key": "clave5"}
+		{"question": "¿Pregunta 5?", "key": "clave5"},
+		{"question": "¿Pregunta 6?", "key": "clave6"},
+		{"question": "¿Pregunta 7?", "key": "clave7"}
 	],
 	"page2": [
 		{"question": "¿Pregunta 6?", "key": "clave"},

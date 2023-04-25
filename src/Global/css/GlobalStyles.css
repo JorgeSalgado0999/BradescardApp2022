@@ -9,18 +9,19 @@
 	--color-danger: #cf2032;
 
 	--tittle: #4e4e4e;
-	--text: #777777;
+	--text: #606060;
+	--secondary-text: #909090;
 
 	--background-main: #f5f4f4;
 	--background-secondary: #d9d9d9;
 	--background-table: #e7e6e6;
 	--background-overlay: #4e4e4e;
 
-	--no-name: #7e7e7e;
+	--gray: #7e7e7e;
 	--no-name-two: #021b29;
 
-	--border-radious: 1rem;
-	--border-radious-two: 0.5rem;
+	--br-one: 0.5rem;
+	--br-two: 1rem;
 }
 *,
 *:before,
@@ -62,7 +63,7 @@ body {
 .mainContainer {
 	background-color: var(--white);
 	padding: 2rem;
-	border-radius: var(--border-radious-two);
+	border-radius: var(--br-one);
 	height: 100%;
 }
 
