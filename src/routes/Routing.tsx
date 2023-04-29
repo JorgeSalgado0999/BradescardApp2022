@@ -24,6 +24,7 @@ import UserContext, {
 	UserProvider,
 	UserType,
 } from "context/UserContext";
+import {CreateStore, Stores} from "components/pages/admin";
 
 export const Routing = () => {
 	const {User, SetUser} = useContext(UserContext) as UserContextType;
@@ -49,6 +50,8 @@ export const Routing = () => {
 					<Route path="agents/create" element={<CreateAgent />} />
 					<Route path="partners" element={<Partners />} />
 					<Route path="partners/create" element={<CreatePartner />} />
+					<Route path="partners/stores/:id" element={<Stores />} />
+					<Route path="partners/stores/create" element={<CreateStore />} />
 					<Route path="history" element={<History />} />
 				</Route>
 			</Route>

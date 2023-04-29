@@ -14,7 +14,7 @@ import {useMutation} from "react-query";
 import {PartnerAPI} from "apis/APIPartners";
 import AlertsContext, {AlertsContextType} from "context/AlertsContext";
 
-export const CreatePartner = () => {
+export const CreateStore = () => {
 	const navigate = useNavigate();
 	const [partnerName, setPartnerName] = useState("");
 	const {Alerts, SetAlerts, createAlert} = useContext(

@@ -6,13 +6,16 @@ import "./Global/css/GlobalStyles.css";
 
 import {UserProvider, UserType} from "context/UserContext";
 import {Routing} from "./routes/Routing";
+import {AlertsProvider} from "context/AlertsContext";
 
 function App() {
 	return (
 		<UserProvider>
-			<BrowserRouter>
-				<Routing />
-			</BrowserRouter>
+			<AlertsProvider>
+				<BrowserRouter>
+					<Routing />
+				</BrowserRouter>
+			</AlertsProvider>
 		</UserProvider>
 	);
 }

@@ -3,13 +3,12 @@ import React from "react";
 import {PartnerCard} from "components/UI/molecules";
 import {Button, Loader} from "components/UI/atoms";
 
-import styles from "./Partners.module.css";
+import styles from "./Stores.module.css";
 import {useNavigate} from "react-router-dom";
 import {useQuery} from "react-query";
 import {PartnerAPI} from "apis/APIPartners";
-import {PartnersTable} from "components/UI/organisms";
 
-export const Partners = () => {
+export const Stores = () => {
 	const navigate = useNavigate();
 
 	const {isLoading, data, isError, error} = useQuery({
@@ -45,15 +44,11 @@ export const Partners = () => {
 	return (
 		<div className="mainContainer">
 			<div className={` row`}>
-				{/* <div className="col-sm-12 mt-3">
-					<h2>Socios</h2>
-				</div> */}
-
 				<div className="col-sm-12 mt-3">
-					<PartnersTable partners={data} />
+					<h2>Tiendas</h2>
 				</div>
 
-				{/* <div className="col-sm-12 mt-3">
+				<div className="col-sm-12 mt-3">
 					<div className={`${styles.agentsContainer}`}>
 						{data?.map((partner: any) => (
 							<PartnerCard
@@ -65,11 +60,11 @@ export const Partners = () => {
 							/>
 						))}
 					</div>
-				</div> */}
+				</div>
 
 				<div className="col-sm-12 mt-3">
 					<Button
-						text="Crear nuevo Socio"
+						text="Crear nueva tienda"
 						func={handleCreateAgent}
 						full={true}
 					/>

@@ -1,6 +1,24 @@
-const Domain = "http://localhost:3000";
-// const Backend = "http://localhost:3001";
-// const Backend = "https://n2ymxdwoa6.execute-api.us-east-1.amazonaws.com";
-const Backend = "https://39kvm7kjwh.execute-api.us-east-1.amazonaws.com/";
+const enviroment: string = "local"; // local, dev, prod
+//--------------------------------------------
+var Domain: string;
+var Backend: string;
+
+switch (enviroment) {
+	case "local":
+		Domain = "http://localhost:3000";
+		Backend = "http://localhost:3001";
+		break;
+	case "dev":
+		Domain = "";
+		Backend = "";
+		break;
+	case "prod":
+		Domain = "";
+		Backend = "";
+		break;
+	default:
+		break;
+}
 
 export {Domain, Backend};
+//J4C@CRM7865#

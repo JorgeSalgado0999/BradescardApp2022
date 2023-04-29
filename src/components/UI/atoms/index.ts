@@ -14,6 +14,9 @@ import {MenuItem} from "./menuItem";
 import {Button} from "./button";
 import {Input} from "./input";
 
+import {Loader} from "./loader";
+import {Alert} from "./alert";
+
 export {
 	StyledInputText,
 	StyledInputRadio,
@@ -25,4 +28,6 @@ export {
 	NavbarLink,
 	Button,
 	Input,
+	Loader,
+	Alert,
 };

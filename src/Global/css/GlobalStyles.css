@@ -17,11 +17,26 @@
 	--background-table: #e7e6e6;
 	--background-overlay: #4e4e4e;
 
+	/* Colors from jac*/
+	--highlight: #4a4e5c; /*cambio 2c74bb*/
+	--main-color: var(--black); /*cambio 141a26*/
+	--gray: #eee;
+	--gray2: #d9d9d9;
+	--gray3: #5a5a5a;
+	--selectedTab: #4a4e5c;
+	--active: #4fc24e;
+	--unactive: #d4505d;
+	/* Colors from jac*/
+
 	--gray: #7e7e7e;
 	--no-name-two: #021b29;
 
 	--br-one: 0.5rem;
 	--br-two: 1rem;
+	/* Border Radious */
+	--br-1: 0.5rem;
+	--br-2: 1rem;
+	--br-3: 2rem;
 }
 *,
 *:before,
