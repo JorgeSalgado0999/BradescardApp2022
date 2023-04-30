@@ -1,14 +1,14 @@
 import React, {useContext} from "react";
 
-import {PartnerRow} from "components/UI/molecules";
-import styles from "./PartnersTable.module.css";
-import {PartnerRowProps} from "models";
+import {UserRow} from "components/UI/molecules";
+import styles from "./Table.module.css";
+import {UserRowProps} from "models";
 
 interface UsersTableProps {
-	partners: PartnerRowProps[];
+	users: UserRowProps[];
 }
 
-export const PartnersTable = (props: UsersTableProps) => {
+export const UsersTable = (props: UsersTableProps) => {
 	return (
 		<table className={styles.table}>
 			<thead>
@@ -22,18 +22,18 @@ export const PartnersTable = (props: UsersTableProps) => {
 			</thead>
 			<tbody className={styles.tableRow}>
 				{/* Starts map with users */}
-				{props.partners.map((partner, index) => (
-					<PartnerRow
-						key={partner.id}
-						id={partner.id}
-						slug={partner.slug}
-						name={partner.name}
-						state={partner.state}
-						manager={partner.manager}
-						email={partner.email}
-						phone={partner.phone}
-						active={partner.active}
-						businessName={partner.businessName}
+				{props.users.map((user, index) => (
+					<UserRow
+						key={user.id}
+						id={user.id}
+						slug={user.slug}
+						name={user.name}
+						state={user.state}
+						manager={user.manager}
+						email={user.email}
+						phone={user.phone}
+						active={user.active}
+						businessName={user.businessName}
 					/>
 				))}
 				{/* Ends map with users */}

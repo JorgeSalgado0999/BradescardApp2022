@@ -1,42 +1,54 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import styles from "./Login.module.css";
 import {logo} from "assets";
 import UserContext, {UserContextType} from "context/UserContext";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 import {
 	StyledInputText,
 	StyledInputSubmit,
 } from "components/UI/atoms/StyledInputs";
+import {AuthAPI} from "apis/APIAuth";
+import {Loader} from "components/UI/atoms";
 
 export const Login = () => {
+	const navigate = useNavigate();
 	const {User, SetUser} = useContext(UserContext) as UserContextType;
-
-	const login = () => {
-		SetUser({
-			id: 1,
-			name: "Jorge Salgado",
-			role: "Agente",
-			permissions: ["agent"],
-		});
-	};
-	const loginAdmin = () => {
-		SetUser({
-			id: 1,
-			name: "Jorge Salgado",
-			role: "Admin",
-			permissions: ["admin"],
-		});
-	};
-
-	const logout = () => {
-		SetUser(null);
-	};
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [response, setResponse] = useState("");
+	const [loading, setLoading] = useState(false);
 
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
-		console.log("iniciando sesión");
-		console.log(User);
+		setLoading(true);
+		console.log("iniciando sesión...");
+
+		AuthAPI.logIn({
+			data: {
+				email: email,
+				password: password,
+			},
+		})
+			.then((response) => {
+				// console.log(response);
+				SetUser({
+					id: response.id,
+					name: response.nickname,
+					role: response.role,
+					permissions: [response.role],
+				});
+
+				localStorage.setItem("token", response.token);
+				localStorage.setItem("id", response.id);
+
+				navigate("/");
+			})
+			.catch((error) => {
+				console.log(error);
+				setResponse(`¡${error}!`);
+				setLoading(false);
+			});
 	};
 
 	return (
@@ -46,11 +58,23 @@ export const Login = () => {
 					<div className="col-xs-12">
 						<img src={logo} alt="" className={styles.logo} />
 						<form className={styles.form} onSubmit={handleSubmit}>
-							<label className="p2 text-bold">Usuario</label>
-							<StyledInputText name="name" />
+							<label className="h5 text-bold text-color">Usuario</label>
+							<StyledInputText
+								name="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+							/>
 
-							<label className="p2 text-bold">Contraseña</label>
-							<StyledInputText name="name" />
+							<label className="h5 text-bold text-color">Contraseña</label>
+							<StyledInputText
+								name="password"
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+
+							<div className={loading ? styles.active : styles.unactive}>
+								{loading ? <Loader /> : <p className={`red`}>{response}</p>}
+							</div>
 
 							<StyledInputSubmit
 								customType="primary"
@@ -58,18 +82,6 @@ export const Login = () => {
 								value="Iniciar Sesión"
 							/>
 						</form>
-						<div className={styles.temp}>
-							<Link to="/admin">admin</Link>
-							<Link to="/agent">agent</Link>
-						</div>
-						{User ? (
-							<button onClick={logout}>Logout</button>
-						) : (
-							<div className={styles.temp2}>
-								<button onClick={login}>Login</button>
-								<button onClick={loginAdmin}>Login Admin</button>
-							</div>
-						)}
 					</div>
 				</div>
 			</div>

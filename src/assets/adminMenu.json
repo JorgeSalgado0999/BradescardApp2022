@@ -19,8 +19,8 @@
 	},
 	{
 		"pos": 3,
-		"text": "Agentes",
+		"text": "Usuarios",
 		"icon": "list",
-		"route": "/admin/agents"
+		"route": "/admin/users"
 	}
 ]

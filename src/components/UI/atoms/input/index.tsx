@@ -9,7 +9,7 @@ interface Props {
 
 export const Input = (props: Props) => {
 	return (
-		<div className={styles.inputContain}>
+		<div className={`mb-1 ${styles.inputContain}`}>
 			<input
 				className={styles.input}
 				type="text"

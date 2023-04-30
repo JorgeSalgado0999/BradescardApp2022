@@ -1,40 +1,39 @@
-import {stringify} from "querystring";
 import {api, API_ROUTE} from "./axiosConfig";
 
-export const UserAPI = {
-	getAll: async function () {
+export const StoreAPI = {
+	getAll: async function (partnerId: string) {
+		console.log("get stores");
 		return api
 			.request({
-				url: `/user`,
+				url: `/store/?partnerId=${partnerId}`,
 				method: "GET",
 			})
 			.then((response) => {
-				return response.data;
+				return response.data.data;
 			})
 			.catch((error: any) => {
-				// console.log("Hubo un error");
+				console.log("Hubo un error");
 				if (error.response) {
-					// console.log(error.response.data);
-					throw new Error(error.response.data.message);
+					console.log(error.response.data);
 				}
 				throw new Error(error);
 			});
 	},
 	create: async function (data: any) {
+		console.log("create store");
 		return api
 			.request({
-				url: `/user`,
+				url: `/store/`,
 				method: "POST",
 				data: data,
 			})
 			.then((response) => {
-				return response.data;
+				return response.data.data;
 			})
 			.catch((error: any) => {
-				// console.log("Hubo un error");
+				console.log("Hubo un error");
 				if (error.response) {
-					// console.log(error.response.data);
-					throw new Error(error.response.data.message);
+					console.log(error.response.data);
 				}
 				throw new Error(error);
 			});

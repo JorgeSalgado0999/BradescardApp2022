@@ -4,16 +4,19 @@ import {PartnerCard} from "components/UI/molecules";
 import {Button, Loader} from "components/UI/atoms";
 
 import styles from "./Stores.module.css";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "react-query";
-import {PartnerAPI} from "apis/APIPartners";
+import {StoresTable} from "components/UI/organisms";
+import {StoreAPI} from "apis/APIStores";
 
 export const Stores = () => {
 	const navigate = useNavigate();
+	const params = useParams();
+	const PartnerId: string = String(params.partnerId);
 
 	const {isLoading, data, isError, error} = useQuery({
-		queryKey: [`partners`, []],
-		queryFn: () => PartnerAPI.getAll(),
+		queryKey: [`stores-${PartnerId}`, []],
+		queryFn: () => StoreAPI.getAll(PartnerId),
 		onSuccess: (data) => {},
 		staleTime: 10 * (60 * 1000), // 5 mins
 		cacheTime: 15 * (60 * 1000), // 10 mins
@@ -43,32 +46,16 @@ export const Stores = () => {
 
 	return (
 		<div className="mainContainer">
-			<div className={` row`}>
-				<div className="col-sm-12 mt-3">
-					<h2>Tiendas</h2>
-				</div>
+			<div className="col-sm-12 mt-3">
+				<StoresTable stores={data} />
+			</div>
 
-				<div className="col-sm-12 mt-3">
-					<div className={`${styles.agentsContainer}`}>
-						{data?.map((partner: any) => (
-							<PartnerCard
-								key={partner.id}
-								partner={partner.name}
-								stores={partner.stores}
-								active={partner.active}
-								id={partner.id}
-							/>
-						))}
-					</div>
-				</div>
-
-				<div className="col-sm-12 mt-3">
-					<Button
-						text="Crear nueva tienda"
-						func={handleCreateAgent}
-						full={true}
-					/>
-				</div>
+			<div className="col-sm-12 mt-3">
+				<Button
+					text="Crear nueva tienda"
+					func={handleCreateAgent}
+					full={true}
+				/>
 			</div>
 		</div>
 	);

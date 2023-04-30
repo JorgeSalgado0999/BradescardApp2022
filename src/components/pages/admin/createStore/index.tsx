@@ -9,30 +9,51 @@ import {
 } from "components/UI/atoms";
 
 import styles from "./Agents.module.css";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useMutation} from "react-query";
 import {PartnerAPI} from "apis/APIPartners";
 import AlertsContext, {AlertsContextType} from "context/AlertsContext";
+import {StoreAPI} from "apis/APIStores";
+import States from "utils/states";
 
 export const CreateStore = () => {
 	const navigate = useNavigate();
+	const params = useParams();
+	const PartnerId: string = String(params.partnerId);
 	const [partnerName, setPartnerName] = useState("");
 	const {Alerts, SetAlerts, createAlert} = useContext(
 		AlertsContext
 	) as AlertsContextType;
+	const [name, setName] = useState("");
+	const [partner, setPartner] = useState(PartnerId);
+	const [state, setState] = useState("");
+	const [address, setAddress] = useState("");
+	const [exteriorNumber, setExteriorNumber] = useState("");
+	const [interiorNumber, setInteriorNumber] = useState("");
+	const [city, setCity] = useState("");
+	const [suburb, setSuburb] = useState("");
+	const [postalCode, setPostalCode] = useState("");
 
-	const addPartnerMutation = useMutation({
+	const addStoreMutation = useMutation({
 		mutationFn: () =>
-			PartnerAPI.create({
+			StoreAPI.create({
 				data: {
-					name: partnerName,
+					name: name,
+					partnerId: partner,
+					state: state,
+					street: address,
+					exteriorNumber: exteriorNumber,
+					interiorNumber: interiorNumber,
+					city: city,
+					suburb: suburb,
+					postalCode: postalCode,
 				},
 			}),
 		onSuccess(data, variables, context) {
 			createAlert(
 				"success",
-				"Partner Creado",
-				"El Partner se creo correctamente"
+				"Tienda Creado",
+				"La tienda se creo correctamente"
 			);
 		},
 		onError(error, variables, context) {
@@ -43,20 +64,63 @@ export const CreateStore = () => {
 
 	function handleSubmit(event: React.FormEvent<EventTarget>) {
 		event.preventDefault();
-		addPartnerMutation.mutate();
+		addStoreMutation.mutate();
 	}
 
 	return (
 		<div className="mainContainer">
 			<div className={` row`}>
 				<div className="col-sm-12 mt-3">
-					<h1>Crear Socio</h1>
+					<h1>Crear Tienda</h1>
 					<form className={`row`} onSubmit={handleSubmit}>
 						<div className="col-xs-7">
+							<Input placeholder="Nombre" value={name} setValue={setName} />
 							<Input
-								placeholder="Nombre"
-								value={partnerName}
-								setValue={setPartnerName}
+								placeholder="partnerId"
+								value={partner}
+								setValue={setPartner}
+							/>
+							<StyledSelect
+								customType="secondary"
+								defaultValue=""
+								onChange={(e) => setState(e.target.value)}
+							>
+								<option value="" disabled>
+									*-- Estado --
+								</option>
+								{States.map((e, index) => {
+									return (
+										<option key={index} value={e.sulg}>
+											{e.name}
+										</option>
+									);
+								})}
+							</StyledSelect>
+							<Input
+								placeholder="calle"
+								value={address}
+								setValue={setAddress}
+							/>
+							<Input
+								placeholder="Nº exterior"
+								value={exteriorNumber}
+								setValue={setExteriorNumber}
+							/>
+							<Input
+								placeholder="Nº interior"
+								value={interiorNumber}
+								setValue={setInteriorNumber}
+							/>
+							<Input placeholder="Ciudad" value={city} setValue={setCity} />
+							<Input
+								placeholder="Colonia"
+								value={suburb}
+								setValue={setSuburb}
+							/>
+							<Input
+								placeholder="Código postal"
+								value={postalCode}
+								setValue={setPostalCode}
 							/>
 						</div>
 

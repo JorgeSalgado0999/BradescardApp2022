@@ -1,15 +1,13 @@
 import {PartnerRowProps} from "models";
 import React from "react";
 import {useNavigate} from "react-router-dom";
-import styles from "./PartnerRow.module.css";
+import styles from "./Row.module.css";
 
 export const PartnerRow: React.FunctionComponent<PartnerRowProps> = (props) => {
 	const navigate = useNavigate();
 
 	function goToAgencie() {
-		// navigate(`1`);
-		// navigate(`${props.slug}`, { state: { agencyId: props.id } });
-		navigate(`${props.id}`);
+		navigate(`stores/${props.id}`);
 	}
 
 	return (

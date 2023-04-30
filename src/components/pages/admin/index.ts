@@ -1,17 +1,9 @@
 import {Admin} from "./home";
-import {Agents} from "./agents";
+import {Users} from "./users";
 import {CreatePartner} from "./createPartner";
 import {Partners} from "./partners";
 import {Stores} from "./stores";
-import {CreateAgent} from "./createAgent";
+import {CreateUser} from "./createUser";
 import {CreateStore} from "./createStore";
 
-export {
-	Admin,
-	Agents,
-	Partners,
-	CreateAgent,
-	CreatePartner,
-	Stores,
-	CreateStore,
-};
+export {Admin, Users, Partners, CreateUser, CreatePartner, Stores, CreateStore};

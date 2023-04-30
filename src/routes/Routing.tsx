@@ -12,8 +12,8 @@ import {
 	Questions,
 	History,
 	Partners,
-	Agents,
-	CreateAgent,
+	Users,
+	CreateUser,
 	CreatePartner,
 } from "components/pages";
 import {Main} from "components/templates";
@@ -46,12 +46,15 @@ export const Routing = () => {
 			>
 				<Route path="admin" element={<Main />}>
 					<Route path="" element={<Admin />} />
-					<Route path="agents" element={<Agents />} />
-					<Route path="agents/create" element={<CreateAgent />} />
+					<Route path="users" element={<Users />} />
+					<Route path="users/create" element={<CreateUser />} />
 					<Route path="partners" element={<Partners />} />
 					<Route path="partners/create" element={<CreatePartner />} />
-					<Route path="partners/stores/:id" element={<Stores />} />
-					<Route path="partners/stores/create" element={<CreateStore />} />
+					<Route path="partners/stores/:partnerId" element={<Stores />} />
+					<Route
+						path="partners/stores/:partnerId/create"
+						element={<CreateStore />}
+					/>
 					<Route path="history" element={<History />} />
 				</Route>
 			</Route>

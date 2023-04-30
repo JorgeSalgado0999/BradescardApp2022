@@ -2,7 +2,7 @@ import {Home} from "components/pages/home";
 import {Login} from "components/pages/authentication/Login";
 import {Register} from "components/pages/authentication/Register";
 import {Agent, CheckList, Questions} from "./Agent";
-import {Admin, Agents, Partners, CreateAgent, CreatePartner} from "./admin/";
+import {Admin, Users, Partners, CreateUser, CreatePartner} from "./admin/";
 import {History} from "./shared";
 
 export {
@@ -14,8 +14,8 @@ export {
 	Questions,
 	History,
 	Admin,
-	Agents,
-	CreateAgent,
+	Users,
+	CreateUser,
 	Partners,
 	CreatePartner,
 };

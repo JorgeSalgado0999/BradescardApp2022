@@ -3,11 +3,13 @@ import styled, {css} from "styled-components";
 export const StyledInputText = styled.input.attrs({
 	type: "text",
 })`
+	font-size: var(--p);
 	background-color: var(--background-table);
 	border: none;
 	border-radius: 0.5rem;
 	height: 4rem;
 	margin-bottom: 1.9rem;
+	padding: 0 0.5rem;
 	&:focus {
 		outline: 3px solid #3fa9f5;
 	}

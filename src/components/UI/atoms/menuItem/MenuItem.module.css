@@ -1,11 +1,11 @@
 .menuItemContainer {
-	height: 3rem;
+	height: 3.2rem;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
 	gap: 1rem;
 	padding: 0 1rem;
-	border-radius: var(--br-two);
+	border-radius: var(--br-2);
 	margin-bottom: 1rem;
 }
 

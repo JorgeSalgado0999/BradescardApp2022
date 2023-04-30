@@ -85,6 +85,25 @@ p {
 .p4 {
 	font-size: var(--p4);
 }
+.h1 {
+	font-size: var(--h1);
+}
+.h2 {
+	font-size: var(--h2);
+}
+.h3 {
+	font-size: var(--h3);
+}
+.h4 {
+	font-size: var(--h4);
+}
+.h5 {
+	font-size: var(--h5);
+}
+.h6 {
+	font-size: var(--h6);
+}
+
 .text-bold {
 	font-weight: bold;
 }
@@ -94,4 +113,11 @@ p {
 
 .highlight {
 	color: var(--tittle);
+}
+
+.text-color {
+	color: var(--text);
+}
+.red {
+	color: var(--unactive);
 }
