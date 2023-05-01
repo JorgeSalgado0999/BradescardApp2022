@@ -1,11 +1,11 @@
-import {Question} from "./Question";
+import {QuestionInterface} from "./Question";
 
 export interface Store {
 	id: number;
 	name: string;
 	active: boolean;
 	partnerId: number;
-	questions?: Question[];
+	questions?: QuestionInterface[];
 
 	createdAt?: Date;
 	updatedAt?: Date;

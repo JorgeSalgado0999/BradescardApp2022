@@ -4,23 +4,70 @@ import {
 	StyledInputText,
 	StyledInputRadio,
 	StyledInputDate,
+	Loader,
 } from "components/UI/atoms";
 
 import styles from "./CheckList.module.css";
 import {useNavigate} from "react-router-dom";
+import {useQuery} from "react-query";
+import {PartnerAPI} from "apis/APIPartners";
 
 export const CheckList = () => {
 	const navigate = useNavigate();
+	const [partnerReview, setPartnerReview] = React.useState("");
+	const [date, setDate] = React.useState("");
+	const [online, setOnline] = React.useState("");
 	const [reviewType, setReviewType] = React.useState("rutine");
+
+	const {isLoading, data, isError, error} = useQuery({
+		queryKey: [`partners`, []],
+		queryFn: () => PartnerAPI.getAll(),
+		onSuccess: (data) => {
+			console.log(data);
+		},
+		staleTime: 10 * (60 * 1000), // 5 mins
+		cacheTime: 15 * (60 * 1000), // 10 mins
+	});
+	if (isLoading) {
+		return (
+			<div className="mainContainer">
+				<div className="row">
+					<div className={`col-xs-12 loaderContainer`}>
+						<Loader />
+					</div>
+				</div>
+			</div>
+		);
+	}
+	if (isError) {
+		return (
+			<div className="mainContainer">
+				<div className="row">
+					<div className={`col-xs-12 loaderContainer`}>
+						<h2>Hubo un Error</h2>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 	const ReviewTypeChange = (value: string) => {
 		setReviewType(value);
+	};
+	const PartnerChange = (value: string) => {
+		setPartnerReview(value);
+	};
+	const OnlineChange = (value: string) => {
+		setOnline(value);
 	};
 
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
 		console.log("iniciando preguntas...");
-		navigate("/agent/questions/1", {replace: true});
+		navigate(
+			`/agent/questions/?partnerId=${partnerReview}&date=${date}&online=${online}&type=${reviewType}`,
+			{replace: true}
+		);
 	};
 
 	return (
@@ -35,26 +82,19 @@ export const CheckList = () => {
 					<div className={`${styles.question} row`}>
 						<h6 className="text-bold">1. Selecciona el Socio</h6>
 						<div className="row">
-							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
-								<label>
-									<p className="p2">Socio 1</p>
-								</label>
-							</div>
-
-							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
-								<label>
-									<p className="p2">Socio 2</p>
-								</label>
-							</div>
-
-							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="socio" value="socio" />
-								<label>
-									<p className="p2">Socio 3</p>
-								</label>
-							</div>
+							{data?.map((partner: any) => (
+								<div className={styles.radioContainer} key={partner.id}>
+									<StyledInputRadio
+										name="partner"
+										value={partner.slug}
+										checked={partnerReview === partner.slug}
+										onChange={() => PartnerChange(partner.slug)}
+									/>
+									<label onClick={() => PartnerChange(partner.slug)}>
+										<p className="p2">{partner.name}</p>
+									</label>
+								</div>
+							))}
 						</div>
 					</div>
 					{/*Ends Row */}
@@ -72,15 +112,25 @@ export const CheckList = () => {
 						</h6>
 						<div className="row">
 							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="type" value="socio" />
-								<label>
+								<StyledInputRadio
+									name="online"
+									value="0"
+									checked={online === "0"}
+									onChange={() => OnlineChange("0")}
+								/>
+								<label onClick={() => OnlineChange("0")}>
 									<p className="p2">Presencial</p>
 								</label>
 							</div>
 
 							<div className={styles.radioContainer}>
-								<StyledInputRadio id="socio" name="type" value="socio" />
-								<label>
+								<StyledInputRadio
+									name="online"
+									value="1"
+									checked={online === "1"}
+									onChange={() => OnlineChange("1")}
+								/>
+								<label onClick={() => OnlineChange("1")}>
 									<p className="p2">Remoto</p>
 								</label>
 							</div>
@@ -94,8 +144,7 @@ export const CheckList = () => {
 						<div className="row">
 							<div className={styles.radioContainer}>
 								<StyledInputRadio
-									id="socio"
-									name="socio"
+									name="type"
 									value="rutine"
 									checked={reviewType === "rutine"}
 									onChange={() => ReviewTypeChange("rutine")}
@@ -109,8 +158,7 @@ export const CheckList = () => {
 
 							<div className={styles.radioContainer}>
 								<StyledInputRadio
-									id="socio"
-									name="socio"
+									name="type"
 									value="fraud"
 									checked={reviewType === "fraud"}
 									onChange={() => ReviewTypeChange("fraud")}
@@ -124,8 +172,7 @@ export const CheckList = () => {
 
 							<div className={styles.radioContainer}>
 								<StyledInputRadio
-									id="socio"
-									name="socio"
+									name="type"
 									value="alert"
 									checked={reviewType === "alert"}
 									onChange={() => ReviewTypeChange("alert")}

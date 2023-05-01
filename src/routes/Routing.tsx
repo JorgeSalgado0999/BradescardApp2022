@@ -64,7 +64,7 @@ export const Routing = () => {
 				<Route path="agent" element={<Main />}>
 					<Route path="" element={<Agent />} />
 					<Route path="checklist" element={<CheckList />} />
-					<Route path="questions/:page" element={<Questions />} />
+					<Route path="questions/" element={<Questions />} />
 					<Route path="history" element={<History />} />
 				</Route>
 			</Route>

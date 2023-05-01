@@ -13,7 +13,7 @@ export interface Answer {
 	breach: string;
 }
 
-export interface Question {
+export interface QuestionInterface {
 	id: number;
 	question: string;
 	category: Category;

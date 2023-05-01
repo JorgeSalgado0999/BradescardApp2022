@@ -1,13 +1,15 @@
-import {Question} from "models/appTypes/Question";
+import {QuestionInterface} from "models/appTypes/Question";
 
 type Action =
 	| {type: "index"; value: number}
-	| {type: "createQuestion"; value: Question}
+	| {type: "category"; value: number}
+	| {type: "createQuestion"; value: QuestionInterface}
 	| {type: "editQuestion"; value: editQuestion};
 
 interface QuestionsReducer {
 	index: number;
-	Questions: Question[];
+	category: number;
+	Questions: QuestionInterface[];
 }
 interface editQuestion {
 	index: number;
@@ -17,6 +19,7 @@ interface editQuestion {
 
 const initial: QuestionsReducer = {
 	index: 0,
+	category: 0,
 	Questions: [],
 };
 
@@ -24,16 +27,25 @@ function reducer(state: QuestionsReducer, action: Action): QuestionsReducer {
 	switch (action.type) {
 		case "index":
 			return {...state, index: action.value};
+		case "category":
+			return {...state, category: action.value};
+
 		case "createQuestion":
+			// console.log("Creando pregunta");
+			console.log(action.value);
 			return {...state, Questions: [...state.Questions, action.value]};
+
 		case "editQuestion":
 			//Todo: terminar método
-			let globalQuestions = state.Questions;
-			let index = action.value.index;
-			let field = action.value.field;
-			let data = action.value.data;
+			console.log("editando pregunta");
+			let globalQuestions: any = state.Questions;
+			let index: any = action.value.index;
+			let field: any = action.value.field;
+			let data: any = action.value.data;
 
-			return {...state, Questions: [...state.Questions]};
+			globalQuestions[index].answer[field] = data;
+
+			return {...state, Questions: globalQuestions};
 		default:
 			return state;
 	}
