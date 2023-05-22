@@ -4,5 +4,16 @@ import {PartnerCard} from "./partnerCard";
 import {PartnerRow} from "./tablesRow/partnerRow";
 import {UserRow} from "./tablesRow/userRow";
 import {StoreRow} from "./tablesRow/storeRow";
+import {ReviewRow} from "./tablesRow/reviewRow";
+import {QuestionListRow} from "./tablesRow/questionListRow";
 
-export {CardReview, AgentCard, PartnerCard, PartnerRow, UserRow, StoreRow};
+export {
+	CardReview,
+	AgentCard,
+	PartnerCard,
+	PartnerRow,
+	UserRow,
+	StoreRow,
+	ReviewRow,
+	QuestionListRow,
+};

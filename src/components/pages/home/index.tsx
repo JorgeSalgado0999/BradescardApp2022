@@ -38,7 +38,7 @@ export const Home = () => {
 		// document.title = "validando sesion...";
 		AuthAPI.verfifyUser()
 			.then((response) => {
-				console.log(response);
+				console.log("usuario obtenido:", response);
 				SetUser({
 					id: response.user.id,
 					name: response.user.nickname,

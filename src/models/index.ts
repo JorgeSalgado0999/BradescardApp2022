@@ -1,9 +1,18 @@
 import {InterfaceUser} from "./user";
 import {Store} from "./appTypes/Store";
 import {Partner} from "./appTypes/Partner";
-import {PartnerRowProps} from "./appTypes/Tables";
-import {UserRowProps} from "./appTypes/Tables";
-import {StoreRowProps} from "./appTypes/Tables";
+import {
+	PartnerRowProps,
+	UserRowProps,
+	StoreRowProps,
+	QuestionRowProps,
+} from "./appTypes/Tables";
+import {
+	Category,
+	QuestionInterface,
+	Answer,
+	QuestionTableProps,
+} from "./appTypes/Question";
 
 //
 
@@ -14,4 +23,9 @@ export type {
 	PartnerRowProps,
 	UserRowProps,
 	StoreRowProps,
+	QuestionRowProps,
+	Category,
+	QuestionInterface,
+	Answer,
+	QuestionTableProps,
 };

@@ -31,3 +31,10 @@ export interface StoreRowProps {
 	active: boolean;
 	businessName: string;
 }
+
+export interface QuestionRowProps {
+	id: string;
+	active: boolean;
+	category: string;
+	question: string;
+}

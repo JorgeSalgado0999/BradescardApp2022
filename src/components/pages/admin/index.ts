@@ -5,5 +5,19 @@ import {Partners} from "./partners";
 import {Stores} from "./stores";
 import {CreateUser} from "./createUser";
 import {CreateStore} from "./createStore";
+import {QuestionsList} from "./questionsList";
+import {CreateQuestion} from "./createQuestion";
+import {PartnerQuestions} from "./partnerQuestions";
 
-export {Admin, Users, Partners, CreateUser, CreatePartner, Stores, CreateStore};
+export {
+	Admin,
+	Users,
+	Partners,
+	CreateUser,
+	CreatePartner,
+	Stores,
+	CreateStore,
+	QuestionsList,
+	CreateQuestion,
+	PartnerQuestions,
+};

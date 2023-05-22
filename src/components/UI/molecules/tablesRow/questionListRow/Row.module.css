@@ -1,0 +1,47 @@
+.row {
+	border-bottom: 1px solid var(--gray2);
+	padding-bottom: 1rem;
+	margin-bottom: 1rem;
+}
+
+.row td {
+	display: flex;
+	align-items: end;
+	/* width: 20%; */
+	/* min-width: 17rem; */
+}
+.row td:nth-child(1) {
+	min-width: 13rem;
+}
+.row td:nth-child(2) {
+	min-width: 27rem;
+}
+.row td:nth-child(3) {
+	min-width: 20rem;
+}
+
+.row td:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.firstColumn {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+}
+
+.agencyStatus {
+	height: 100%;
+	width: 7px;
+	background-color: var(--white);
+	border-radius: var(--br-2);
+}
+
+.active {
+	background-color: var(--active);
+}
+.unactive {
+	background-color: var(--unactive);
+}

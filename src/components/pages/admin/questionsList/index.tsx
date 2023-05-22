@@ -4,17 +4,18 @@ import {PartnerCard} from "components/UI/molecules";
 import {Button, Loader} from "components/UI/atoms";
 
 import styles from "./Partners.module.css";
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import {useQuery} from "react-query";
-import {PartnerAPI} from "apis/APIPartners";
+import {QuestionAPI} from "apis/APIQuestion";
 import {PartnersTable} from "components/UI/organisms";
+import {QuestionsListTable} from "components/UI/organisms/";
 
-export const Partners = () => {
+export const QuestionsList = () => {
 	const navigate = useNavigate();
 
 	const {isLoading, data, isError, error} = useQuery({
-		queryKey: [`partners`, []],
-		queryFn: () => PartnerAPI.getAll(),
+		queryKey: [`questions`, []],
+		queryFn: () => QuestionAPI.getAll(),
 		onSuccess: (data) => {},
 		staleTime: 10 * (60 * 1000), // 5 mins
 		cacheTime: 15 * (60 * 1000), // 10 mins
@@ -42,7 +43,7 @@ export const Partners = () => {
 		);
 	}
 
-	function handleCreateAgent() {
+	function handleCreateQuetion() {
 		navigate("create");
 	}
 
@@ -54,7 +55,7 @@ export const Partners = () => {
 				</div> */}
 
 				<div className="col-sm-12 mt-3">
-					<PartnersTable partners={data} />
+					<QuestionsListTable questions={data} />
 				</div>
 
 				{/* <div className="col-sm-12 mt-3">
@@ -73,8 +74,8 @@ export const Partners = () => {
 
 				<div className="col-sm-12 mt-3">
 					<Button
-						text="Crear nuevo Socio"
-						func={handleCreateAgent}
+						text="Crear nueva pregunta"
+						func={handleCreateQuetion}
 						full={true}
 					/>
 				</div>

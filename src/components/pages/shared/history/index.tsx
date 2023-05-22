@@ -2,13 +2,47 @@ import {
 	StyledInputDate,
 	StyledSelect,
 	StyledInputSubmit,
+	Loader,
 } from "components/UI/atoms";
 import {CardReview} from "components/UI/molecules";
 import React from "react";
 import styles from "./History.module.css";
+import {ReviewsTable} from "components/UI/organisms";
+import {useQuery} from "react-query";
+import {ReviewAPI} from "apis/APIReview";
 
 export const History = () => {
 	const [title, setTitle] = React.useState("Ultimas 7 revisiones");
+
+	const {isLoading, data, isError, error} = useQuery({
+		queryKey: [`reviews`, []],
+		queryFn: () => ReviewAPI.getAll(),
+		onSuccess: (data) => {},
+		staleTime: 10 * (60 * 1000), // 5 mins
+		cacheTime: 15 * (60 * 1000), // 10 mins
+	});
+	if (isLoading) {
+		return (
+			<div className="mainContainer">
+				<div className="row">
+					<div className={`col-xs-12 loaderContainer`}>
+						<Loader />
+					</div>
+				</div>
+			</div>
+		);
+	}
+	if (isError) {
+		return (
+			<div className="mainContainer">
+				<div className="row">
+					<div className={`col-xs-12 loaderContainer`}>
+						<h2>Hubo un Error</h2>
+					</div>
+				</div>
+			</div>
+		);
+	}
 
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
@@ -23,7 +57,7 @@ export const History = () => {
 				</div>
 			</div>
 
-			<form className="row mb-3  middle-xs" onSubmit={handleSubmit}>
+			{/* <form className="row mb-3  middle-xs" onSubmit={handleSubmit}>
 				<StyledSelect customType="primary" className={styles.historySelect}>
 					<option value="socio" disabled>
 						-- Selecciona el Socio --
@@ -59,16 +93,20 @@ export const History = () => {
 						type="submit"
 					/>
 				</div>
-			</form>
+			</form> */}
 
 			<div className={`row mb-3`}>
-				<div className="col-sm-12">
+				{/* <div className="col-sm-12">
 					<h1>{title}</h1>
 					<div className={`${styles.reviews} row`}>
 						<CardReview />
 						<CardReview />
 						<CardReview />
 					</div>
+				</div> */}
+
+				<div className="col-sm-12 mt-3">
+					<ReviewsTable data={data} />
 				</div>
 			</div>
 

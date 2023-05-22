@@ -24,7 +24,13 @@ import UserContext, {
 	UserProvider,
 	UserType,
 } from "context/UserContext";
-import {CreateStore, Stores} from "components/pages/admin";
+import {
+	CreateQuestion,
+	CreateStore,
+	PartnerQuestions,
+	QuestionsList,
+	Stores,
+} from "components/pages/admin";
 
 export const Routing = () => {
 	const {User, SetUser} = useContext(UserContext) as UserContextType;
@@ -40,7 +46,7 @@ export const Routing = () => {
 			<Route
 				element={
 					<ProtectedRoute
-						isAllowed={!!User && User.permissions.includes("admin")}
+						isAllowed={User && User.permissions.includes("admin")}
 					/>
 				}
 			>
@@ -50,17 +56,29 @@ export const Routing = () => {
 					<Route path="users/create" element={<CreateUser />} />
 					<Route path="partners" element={<Partners />} />
 					<Route path="partners/create" element={<CreatePartner />} />
+					<Route
+						path="partners/:partnerId/questions"
+						element={<PartnerQuestions />}
+					/>
 					<Route path="partners/stores/:partnerId" element={<Stores />} />
 					<Route
 						path="partners/stores/:partnerId/create"
 						element={<CreateStore />}
 					/>
 					<Route path="history" element={<History />} />
+					<Route path="questions" element={<QuestionsList />} />
+					<Route path="questions/create" element={<CreateQuestion />} />
 				</Route>
 			</Route>
 
 			{/* agent urls */}
-			<Route element={<ProtectedRoute isAllowed={!!User} />}>
+			<Route
+				element={
+					<ProtectedRoute
+						isAllowed={User && User.permissions.includes("agent")}
+					/>
+				}
+			>
 				<Route path="agent" element={<Main />}>
 					<Route path="" element={<Agent />} />
 					<Route path="checklist" element={<CheckList />} />

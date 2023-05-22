@@ -7,14 +7,17 @@ import styles from "./Partners.module.css";
 import {useNavigate, useParams} from "react-router-dom";
 import {useQuery} from "react-query";
 import {PartnerAPI} from "apis/APIPartners";
-import {PartnersTable} from "components/UI/organisms";
+import {PartnersTable, QuestionsListTable} from "components/UI/organisms";
+import {QuestionAPI} from "apis/APIQuestion";
 
-export const Partners = () => {
+export const PartnerQuestions = () => {
 	const navigate = useNavigate();
+	const params = useParams();
+	const PartnerId: string = String(params.partnerId);
 
 	const {isLoading, data, isError, error} = useQuery({
-		queryKey: [`partners`, []],
-		queryFn: () => PartnerAPI.getAll(),
+		queryKey: [`questions-partner${PartnerId}`, []],
+		queryFn: () => QuestionAPI.getAll(),
 		onSuccess: (data) => {},
 		staleTime: 10 * (60 * 1000), // 5 mins
 		cacheTime: 15 * (60 * 1000), // 10 mins
@@ -42,7 +45,7 @@ export const Partners = () => {
 		);
 	}
 
-	function handleCreateAgent() {
+	function handleCreateQuetion() {
 		navigate("create");
 	}
 
@@ -54,27 +57,13 @@ export const Partners = () => {
 				</div> */}
 
 				<div className="col-sm-12 mt-3">
-					<PartnersTable partners={data} />
+					<QuestionsListTable questions={data} />
 				</div>
-
-				{/* <div className="col-sm-12 mt-3">
-					<div className={`${styles.agentsContainer}`}>
-						{data?.map((partner: any) => (
-							<PartnerCard
-								key={partner.id}
-								partner={partner.name}
-								stores={partner.stores}
-								active={partner.active}
-								id={partner.id}
-							/>
-						))}
-					</div>
-				</div> */}
 
 				<div className="col-sm-12 mt-3">
 					<Button
-						text="Crear nuevo Socio"
-						func={handleCreateAgent}
+						text="Agregar preguntas"
+						func={handleCreateQuetion}
 						full={true}
 					/>
 				</div>

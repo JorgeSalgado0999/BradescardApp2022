@@ -19,3 +19,9 @@ export interface QuestionInterface {
 	category: Category;
 	answer: Answer;
 }
+
+export interface QuestionTableProps {
+	id: number;
+	question: string;
+	category: string;
+}

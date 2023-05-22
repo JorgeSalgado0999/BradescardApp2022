@@ -43,6 +43,9 @@ export const Stores = () => {
 	function handleCreateAgent() {
 		navigate("create");
 	}
+	function handlePartnerQuestions() {
+		navigate(`/admin/partners/${PartnerId}/questions`);
+	}
 
 	return (
 		<div className="mainContainer">
@@ -54,6 +57,13 @@ export const Stores = () => {
 				<Button
 					text="Crear nueva tienda"
 					func={handleCreateAgent}
+					full={true}
+				/>
+			</div>
+			<div className="col-sm-12">
+				<Button
+					text="Ver preguntas"
+					func={handlePartnerQuestions}
 					full={true}
 				/>
 			</div>

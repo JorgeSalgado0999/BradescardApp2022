@@ -22,5 +22,11 @@
 		"text": "Usuarios",
 		"icon": "list",
 		"route": "/admin/users"
+	},
+	{
+		"pos": 4,
+		"text": "Preguntas",
+		"icon": "list",
+		"route": "/admin/questions"
 	}
 ]
