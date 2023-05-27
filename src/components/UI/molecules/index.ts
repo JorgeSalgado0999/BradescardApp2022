@@ -6,6 +6,7 @@ import {UserRow} from "./tablesRow/userRow";
 import {StoreRow} from "./tablesRow/storeRow";
 import {ReviewRow} from "./tablesRow/reviewRow";
 import {QuestionListRow} from "./tablesRow/questionListRow";
+import {QuestionListPartnerRow} from "./tablesRow/questionListPartnerRow";
 
 export {
 	CardReview,
@@ -16,4 +17,5 @@ export {
 	StoreRow,
 	ReviewRow,
 	QuestionListRow,
+	QuestionListPartnerRow,
 };

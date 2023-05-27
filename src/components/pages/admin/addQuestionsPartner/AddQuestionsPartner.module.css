@@ -1,0 +1,6 @@
+.questionContainer {
+	display: flex;
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 2rem;
+	gap: 3.5rem;
+}

@@ -8,6 +8,7 @@ import {CreateStore} from "./createStore";
 import {QuestionsList} from "./questionsList";
 import {CreateQuestion} from "./createQuestion";
 import {PartnerQuestions} from "./partnerQuestions";
+import {AddQuestionsPartner} from "./addQuestionsPartner";
 
 export {
 	Admin,
@@ -20,4 +21,5 @@ export {
 	QuestionsList,
 	CreateQuestion,
 	PartnerQuestions,
+	AddQuestionsPartner,
 };

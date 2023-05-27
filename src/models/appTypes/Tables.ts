@@ -38,3 +38,10 @@ export interface QuestionRowProps {
 	category: string;
 	question: string;
 }
+export interface QuestionPartnerRowProps {
+	id: string;
+	active: boolean;
+	category: string;
+	question: string;
+	online: boolean;
+}

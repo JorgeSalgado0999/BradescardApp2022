@@ -75,4 +75,46 @@ export const QuestionAPI = {
 				throw new Error(error);
 			});
 	},
+	getByPartner: async function (partnerId: string) {
+		console.log("get questions by partner");
+		return api
+			.request({
+				url: `/question-partner/${partnerId}`,
+				method: "GET",
+			})
+			.then((response) => {
+				return response.data.data;
+			})
+			.catch((error: any) => {
+				console.log("Hubo un error");
+				if (error.response) {
+					console.log(error.response.data);
+				}
+				throw new Error(error);
+			});
+	},
+	addQuestionsToPartner: async function (PartnerId: string, data: any) {
+		console.log("add partner question");
+		return api
+			.request({
+				url: `/question-partner`,
+				method: "PUT",
+				data: {
+					data: {
+						partnerId: PartnerId,
+						questions: data,
+					},
+				},
+			})
+			.then((response) => {
+				return response.data.data;
+			})
+			.catch((error: any) => {
+				console.log("Hubo un error");
+				if (error.response) {
+					console.log(error.response.data);
+				}
+				throw new Error(error);
+			});
+	},
 };

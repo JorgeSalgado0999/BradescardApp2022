@@ -25,6 +25,7 @@ import UserContext, {
 	UserType,
 } from "context/UserContext";
 import {
+	AddQuestionsPartner,
 	CreateQuestion,
 	CreateStore,
 	PartnerQuestions,
@@ -59,6 +60,10 @@ export const Routing = () => {
 					<Route
 						path="partners/:partnerId/questions"
 						element={<PartnerQuestions />}
+					/>
+					<Route
+						path="partners/:partnerId/questions/create"
+						element={<AddQuestionsPartner />}
 					/>
 					<Route path="partners/stores/:partnerId" element={<Stores />} />
 					<Route

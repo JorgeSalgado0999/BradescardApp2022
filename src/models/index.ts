@@ -6,6 +6,7 @@ import {
 	UserRowProps,
 	StoreRowProps,
 	QuestionRowProps,
+	QuestionPartnerRowProps,
 } from "./appTypes/Tables";
 import {
 	Category,
@@ -28,4 +29,5 @@ export type {
 	QuestionInterface,
 	Answer,
 	QuestionTableProps,
+	QuestionPartnerRowProps,
 };

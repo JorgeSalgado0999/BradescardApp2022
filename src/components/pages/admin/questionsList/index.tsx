@@ -54,7 +54,7 @@ export const QuestionsList = () => {
 					<h2>Socios</h2>
 				</div> */}
 
-				<div className="col-sm-12 mt-3">
+				<div className="col-sm-12 mt-3 tableContainer">
 					<QuestionsListTable questions={data} />
 				</div>
 

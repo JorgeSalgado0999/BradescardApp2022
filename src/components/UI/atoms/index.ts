@@ -13,6 +13,7 @@ import {MenuItem} from "./menuItem";
 
 import {Button} from "./button";
 import {Input} from "./input";
+import {Checkbox} from "./checkbox";
 
 import {Loader} from "./loader";
 import {Alert} from "./alert";
@@ -30,4 +31,5 @@ export {
 	Input,
 	Loader,
 	Alert,
+	Checkbox,
 };

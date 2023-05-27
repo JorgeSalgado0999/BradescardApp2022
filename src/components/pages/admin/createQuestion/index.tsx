@@ -35,7 +35,7 @@ export const CreateQuestion = () => {
 		onSuccess(data, variables, context) {
 			createAlert(
 				"success",
-				"Partner Creado",
+				"Pregunta Creado",
 				"La pregunta se creo correctamente"
 			);
 		},

@@ -5,6 +5,7 @@ import {UsersTable} from "./tables/usersTable";
 import {StoresTable} from "./tables/storesTable";
 import {ReviewsTable} from "./tables/reviewsTable";
 import {QuestionsListTable} from "./tables/questionsListTable";
+import {QuestionsListPartnerTable} from "./tables/questionsListPartnerTable";
 
 export {
 	NavBar,
@@ -14,4 +15,5 @@ export {
 	StoresTable,
 	ReviewsTable,
 	QuestionsListTable,
+	QuestionsListPartnerTable,
 };

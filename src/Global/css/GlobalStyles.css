@@ -88,3 +88,18 @@ a {
 .loaderContainer {
 	height: calc(100vh - 7rem - 3rem - 5rem - 3rem - 6rem);
 }
+
+/* Tables Styles */
+.tableContainer {
+	overflow-x: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.tableContainer::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.tableContainer {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
