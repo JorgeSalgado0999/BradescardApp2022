@@ -14,6 +14,7 @@ export const QuestionsListTable = (props: UsersTableProps) => {
 			<thead>
 				<tr>
 					<th className={`p4 highlight text-left`}>Id</th>
+					<th className={`p4 highlight text-left`}>Riesgo</th>
 					<th className={`p4 highlight text-left`}>Categoría</th>
 					<th className={`p4 highlight text-left`}>Pregunta</th>
 				</tr>
@@ -23,6 +24,7 @@ export const QuestionsListTable = (props: UsersTableProps) => {
 				{props.questions.map((question, index) => (
 					<QuestionListRow
 						id={String(question.id)}
+						riskLevel={question.riskLevel}
 						category={question.category}
 						question={question.question}
 						active={true}

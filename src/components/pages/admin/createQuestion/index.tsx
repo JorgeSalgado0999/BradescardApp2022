@@ -19,6 +19,7 @@ export const CreateQuestion = () => {
 	const navigate = useNavigate();
 	const [question, setQuestion] = useState("");
 	const [category, setCategory] = useState("");
+	const [riskLevel, setRiskLevel] = useState("");
 	const [categories, setCategories] = useState([]);
 	const {Alerts, SetAlerts, createAlert} = useContext(
 		AlertsContext
@@ -30,6 +31,7 @@ export const CreateQuestion = () => {
 				data: {
 					question: question,
 					CategoryId: category,
+					riskLevel: riskLevel,
 				},
 			}),
 		onSuccess(data, variables, context) {
@@ -82,6 +84,22 @@ export const CreateQuestion = () => {
 								{categories.map((category: any) => (
 									<option value={category.id}>{category.category}</option>
 								))}
+							</StyledSelect>
+						</div>
+						<div className="col-xs-7">
+							<StyledSelect
+								customType="primary"
+								value={riskLevel}
+								onChange={(e: any) => setRiskLevel(e.target.value)}
+							>
+								<option value="" disabled>
+									-- Riesgo --
+								</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
 							</StyledSelect>
 						</div>
 

@@ -1,5 +1,8 @@
 import styled, {css} from "styled-components";
 
+export interface PropsTxt {
+	customType: string;
+}
 export const StyledInputText = styled.input.attrs({
 	type: "text",
 })`
@@ -12,6 +15,25 @@ export const StyledInputText = styled.input.attrs({
 	padding: 0 0.5rem;
 	&:focus {
 		outline: 3px solid #3fa9f5;
+	}
+`;
+export const StyledMaterialInput = styled.input.attrs<PropsTxt>({
+	type: "text",
+})`
+	background-color: ${(props: PropsTxt) =>
+		props.customType === "gray" ? "var(--background-table)" : "var(--white)"};
+	color: var(--text);
+	border: none;
+	font-size: var(--p);
+	border-radius: var(--br-1);
+	width: 100%;
+	min-height: 3rem;
+	padding: 1rem 0.5rem;
+	margin-bottom: 1.9rem;
+	border-bottom: 1px solid var(--gray2);
+	&:focus {
+		outline: none;
+		border-color: var(--color-secondary);
 	}
 `;
 
@@ -79,6 +101,26 @@ export const StyledInputRadio = styled.input.attrs({
 export const StyledInputDate = styled.input.attrs({
 	type: "date",
 })`
+	max-width: 15rem;
+	height: 3rem;
+	text-align: center;
+	border: none;
+	background-color: transparent;
+	border-bottom: 2px solid #e3b924;
+
+	font-size: var(--p2);
+	font-weight: bold;
+	color: var(--text);
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+`;
+export const StyledInputTime = styled.input.attrs({
+	type: "time",
+})`
+	min-width: 5rem;
 	max-width: 15rem;
 	height: 3rem;
 	text-align: center;

@@ -26,7 +26,38 @@ export const ReviewAPI = {
 			.request({
 				url: `/review/`,
 				method: "POST",
-				data: data,
+				data: {
+					data: {
+						PartnerId: data.partnerId,
+						StoreId: data.storeId,
+						contactName: data.contactName,
+						date: data.date,
+						startTime: data.startTime,
+						endTime: data.endTime,
+						online: data.online,
+						type: data.type,
+						rating: 5,
+						questions: data.Questions,
+					},
+				},
+			})
+			.then((response) => {
+				return response.data.data;
+			})
+			.catch((error: any) => {
+				console.log("Hubo un error");
+				if (error.response) {
+					console.log(error.response.data);
+				}
+				throw new Error(error);
+			});
+	},
+	getQuestionsReview: async function (partnerId: string, online: boolean) {
+		console.log("get questions for review");
+		return api
+			.request({
+				url: `/review/questions/?partnerId=${partnerId}&online=${online}`,
+				method: "GET",
 			})
 			.then((response) => {
 				return response.data.data;

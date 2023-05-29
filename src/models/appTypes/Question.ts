@@ -22,6 +22,7 @@ export interface QuestionInterface {
 
 export interface QuestionTableProps {
 	id: number;
+	riskLevel: string;
 	question: string;
 	category: string;
 }

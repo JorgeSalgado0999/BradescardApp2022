@@ -1,7 +1,9 @@
 import {
 	StyledInputText,
+	StyledMaterialInput,
 	StyledInputRadio,
 	StyledInputDate,
+	StyledInputTime,
 	StyledInputSubmit,
 } from "./StyledInputs";
 import {StyledTextArea} from "./StyledTextArea";
@@ -20,8 +22,10 @@ import {Alert} from "./alert";
 
 export {
 	StyledInputText,
+	StyledMaterialInput,
 	StyledInputRadio,
 	StyledInputDate,
+	StyledInputTime,
 	StyledInputSubmit,
 	StyledSelect,
 	StyledTextArea,

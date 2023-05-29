@@ -25,6 +25,9 @@ export const QuestionListRow: React.FunctionComponent<QuestionRowProps> = (
 				</div>
 			</td>
 			<td className={``}>
+				<p className="p4 secondary no-margin">{props.riskLevel}</p>
+			</td>
+			<td className={``}>
 				<p className="p4 secondary no-margin">{props.category}</p>
 			</td>
 			<td className={``}>

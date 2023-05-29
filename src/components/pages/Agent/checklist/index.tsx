@@ -5,17 +5,28 @@ import {
 	StyledInputRadio,
 	StyledInputDate,
 	Loader,
+	StyledSelect,
+	Input,
+	StyledMaterialInput,
+	StyledInputTime,
 } from "components/UI/atoms";
 
 import styles from "./CheckList.module.css";
 import {useNavigate} from "react-router-dom";
 import {useQuery} from "react-query";
 import {PartnerAPI} from "apis/APIPartners";
+import {StoreAPI} from "apis/APIStores";
 
 export const CheckList = () => {
 	const navigate = useNavigate();
+	const [stores, setStores] = React.useState<any[]>([]);
+	//fields for the review
 	const [partnerReview, setPartnerReview] = React.useState("");
+	const [selectedStore, setSelectedStore] = React.useState<any>("");
+	const [contactName, setContactName] = React.useState("");
 	const [date, setDate] = React.useState("");
+	const [startTime, setStartTime] = React.useState("");
+	const [endTime, setEndTime] = React.useState("");
 	const [online, setOnline] = React.useState("");
 	const [reviewType, setReviewType] = React.useState("rutine");
 
@@ -56,16 +67,24 @@ export const CheckList = () => {
 	};
 	const PartnerChange = (value: string) => {
 		setPartnerReview(value);
+		setSelectedStore("");
+		getStores(value);
 	};
 	const OnlineChange = (value: string) => {
 		setOnline(value);
+	};
+
+	const getStores = (partnerId: string) => {
+		StoreAPI.getAll(partnerId).then((data) => {
+			setStores(data);
+		});
 	};
 
 	const handleSubmit = (event: React.FormEvent<EventTarget>) => {
 		event.preventDefault();
 		console.log("iniciando preguntas...");
 		navigate(
-			`/agent/questions/?partnerId=${partnerReview}&date=${date}&online=${online}&type=${reviewType}`,
+			`/agent/questions/?partnerId=${partnerReview}&storeId=${selectedStore}&contactName=${contactName}&date=${date}&startTime=${startTime}&endTime=${endTime}&online=${online}&type=${reviewType}`,
 			{replace: true}
 		);
 	};
@@ -86,11 +105,14 @@ export const CheckList = () => {
 								<div className={styles.radioContainer} key={partner.id}>
 									<StyledInputRadio
 										name="partner"
-										value={partner.slug}
-										checked={partnerReview === partner.slug}
-										onChange={() => PartnerChange(partner.slug)}
+										value={partner.id}
+										checked={partnerReview === partner.id}
+										onChange={() => PartnerChange(partner.id)}
 									/>
-									<label onClick={() => PartnerChange(partner.slug)}>
+									<label
+										className="pointer"
+										onClick={() => PartnerChange(partner.id)}
+									>
 										<p className="p2">{partner.name}</p>
 									</label>
 								</div>
@@ -98,17 +120,81 @@ export const CheckList = () => {
 						</div>
 					</div>
 					{/*Ends Row */}
+					{/* Starts Row */}
+					<div className={`${styles.question} row`}>
+						<h6 className="text-bold">2.Selecciona la tienda</h6>
+						<div className="col-md-4">
+							<StyledSelect
+								customType="secondary"
+								value={selectedStore}
+								onChange={(e) => setSelectedStore(e.target.value)}
+							>
+								<option value="" disabled>
+									*-- Tienda --
+								</option>
+								{stores.map((store) => (
+									<option key={store.id} value={store.id}>
+										{store.name}
+									</option>
+								))}
+							</StyledSelect>
+						</div>
+					</div>
+					{/*Ends Row */}
 
 					{/* Starts Row */}
 					<div className={`${styles.question} row`}>
-						<h6 className="text-bold">2. Fecha en la que se realizó</h6>
-						<StyledInputDate id="start" name="trip-start" />
+						<h6 className="text-bold">3. Contacto de la tienda</h6>
+						<div className="col-md-4">
+							<StyledMaterialInput
+								customType="p"
+								placeholder="Nombre"
+								onChange={(e: any) => setContactName(e.target.value)}
+							/>
+						</div>
+					</div>
+					{/*Ends Row */}
+
+					{/* Starts Row */}
+					<div className={`${styles.question} row`}>
+						<h6 className="text-bold">4. Fecha en la que se realizó</h6>
+						<StyledInputDate
+							id="start"
+							name="trip-start"
+							onChange={(e: any) => {
+								setDate(e.target.value);
+							}}
+						/>
 					</div>
 					{/*Ends Row */}
 					{/* Starts Row */}
 					<div className={`${styles.question} row`}>
+						<h6 className="text-bold">5. Horario en el que se realizó</h6>
+						<div className={`${styles.timeSelect}`}>
+							<p className="p mr-1"> Inicio: </p>
+							<StyledInputTime
+								type="time"
+								name=""
+								onChange={(e: any) => {
+									setStartTime(e.target.value);
+								}}
+							></StyledInputTime>
+							<p className="p ml-3 mr-1">Fin: </p>
+							<StyledInputTime
+								type="time"
+								name=""
+								onChange={(e: any) => {
+									setEndTime(e.target.value);
+								}}
+							></StyledInputTime>
+						</div>
+					</div>
+					{/*Ends Row */}
+
+					{/* Starts Row */}
+					<div className={`${styles.question} row`}>
 						<h6 className="text-bold">
-							3. Selecciona la modalidad en la que se realizo
+							6. Selecciona la modalidad en la que se realizo
 						</h6>
 						<div className="row">
 							<div className={styles.radioContainer}>
@@ -140,7 +226,7 @@ export const CheckList = () => {
 
 					{/*Starts Row */}
 					<div className={`${styles.question} row`}>
-						<h6 className="text-bold">4. Selecciona el tipo de Revisión</h6>
+						<h6 className="text-bold">7. Selecciona el tipo de Revisión</h6>
 						<div className="row">
 							<div className={styles.radioContainer}>
 								<StyledInputRadio

@@ -34,6 +34,7 @@ export interface StoreRowProps {
 
 export interface QuestionRowProps {
 	id: string;
+	riskLevel: string;
 	active: boolean;
 	category: string;
 	question: string;

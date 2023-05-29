@@ -126,7 +126,7 @@ export const CreateStore = () => {
 
 						<div className="col-xs-12">
 							<StyledInputSubmit
-								value="Crear Socio"
+								value="Crear Tienda"
 								customType="primary"
 								onClick={handleSubmit}
 							/>
