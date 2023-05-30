@@ -36,6 +36,7 @@ export const Questions = () => {
 
 		if (fields.index + 1 === data.length) {
 			console.log("se acabo");
+			setSubmitTxt("enviar");
 			ReviewAPI.create(fields)
 				.then((res) => {
 					console.log(res);
@@ -108,6 +109,7 @@ export const Questions = () => {
 				data.forEach((element: any, index: any) => {
 					console.log(element);
 					element.questions.forEach((question: any) => {
+						// console.log(question);
 						let newQuestion: QuestionInterface = {
 							id: question.id,
 							question: question.question,
@@ -221,7 +223,8 @@ export const Questions = () => {
 							className={`row mb-3 ${styles.questionBody}`}
 						>
 							<h3 className="mb-3">
-								{question.id} - {question.question.question}
+								{question.id} - {question.question.question} Riesgo:{" "}
+								{String(question.question.riskLevel)}
 							</h3>
 							<div className={`${styles.questionsHeader}`}>
 								{/* Qst1 */}
@@ -229,7 +232,7 @@ export const Questions = () => {
 									<StyledSelect
 										customType="primary"
 										defaultValue={"default"}
-										onChange={(e: any) =>
+										onChange={(e: any) => {
 											dispatch({
 												type: "editQuestion",
 												value: {
@@ -237,15 +240,30 @@ export const Questions = () => {
 													field: "status",
 													data: e.target.value,
 												},
-											})
-										}
+											});
+											if (e.target.value === "1") {
+												console.log("incorrecto");
+												dispatch({
+													type: "incorrectQuestions",
+													value: fields.incorrectQuestions + 1,
+												});
+											} else if (e.target.value === "0") {
+												console.log("correcto");
+												dispatch({
+													type: "correctQuestions",
+													value: fields.correctQuestions + 1,
+												});
+											}
+										}}
 									>
 										<option value="default" disabled>
 											-- Estatus --
 										</option>
-										<option value="correct">Correcto</option>
-										<option value="incidence">Incidencia</option>
-										<option value="na">N/A</option>
+										<option value={0}>Correcto</option>
+										<option value={1}>Incidencia</option>
+										<option value={2} disabled>
+											N/A
+										</option>
 									</StyledSelect>
 								</div>
 								{/* Qst1 */}

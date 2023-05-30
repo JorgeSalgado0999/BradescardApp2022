@@ -1,5 +1,4 @@
 import {QuestionInterface} from "models/appTypes/Question";
-import {type} from "os";
 
 type Action =
 	| {type: "index"; value: number}
@@ -12,8 +11,10 @@ type Action =
 	| {type: "contactName"; value: string}
 	| {type: "online"; value: boolean}
 	| {type: "type"; value: string}
-	| {type: "createQuestion"; value: QuestionInterface}
-	| {type: "editQuestion"; value: editQuestion};
+	| {type: "createQuestion"; value: any}
+	| {type: "editQuestion"; value: editQuestion}
+	| {type: "correctQuestions"; value: number}
+	| {type: "incorrectQuestions"; value: number};
 
 interface QuestionsReducer {
 	partnerId: number;
@@ -27,6 +28,8 @@ interface QuestionsReducer {
 	index: number;
 	questionIndex: number;
 	Questions: QuestionInterface[];
+	correctQuestions: number;
+	incorrectQuestions: number;
 }
 interface editQuestion {
 	index: number;
@@ -46,6 +49,8 @@ const initial: QuestionsReducer = {
 	index: 0,
 	questionIndex: 0,
 	Questions: [],
+	correctQuestions: 0,
+	incorrectQuestions: 0,
 };
 
 function reducer(state: QuestionsReducer, action: Action): QuestionsReducer {
@@ -74,8 +79,8 @@ function reducer(state: QuestionsReducer, action: Action): QuestionsReducer {
 			return {...state, type: action.value};
 
 		case "createQuestion":
-			// console.log("Creando pregunta");
-			// console.log(action.value);
+			console.log("Creando pregunta");
+			console.log(action.value);
 			return {...state, Questions: [...state.Questions, action.value]};
 
 		case "editQuestion":
@@ -89,6 +94,13 @@ function reducer(state: QuestionsReducer, action: Action): QuestionsReducer {
 			globalQuestions[index].answer[field] = data;
 
 			return {...state, Questions: globalQuestions};
+
+		case "correctQuestions":
+			return {...state, correctQuestions: action.value};
+
+		case "incorrectQuestions":
+			return {...state, incorrectQuestions: action.value};
+
 		default:
 			return state;
 	}
