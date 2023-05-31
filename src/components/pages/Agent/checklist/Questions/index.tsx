@@ -35,9 +35,10 @@ export const Questions = () => {
 		console.log(fields);
 
 		if (fields.index + 1 === data.length) {
-			console.log("se acabo");
+			let rating = 1 - fields.correctQuestions / fields.Questions.length;
+			console.log("se acabo calificación:", rating);
 			setSubmitTxt("enviar");
-			ReviewAPI.create(fields)
+			ReviewAPI.create(fields, rating)
 				.then((res) => {
 					console.log(res);
 				})

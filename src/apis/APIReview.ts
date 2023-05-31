@@ -20,7 +20,7 @@ export const ReviewAPI = {
 				throw new Error(error);
 			});
 	},
-	create: async function (data: any) {
+	create: async function (data: any, rating: number) {
 		console.log("create partner");
 		return api
 			.request({
@@ -36,7 +36,7 @@ export const ReviewAPI = {
 						endTime: data.endTime,
 						online: data.online,
 						type: data.type,
-						rating: 5,
+						rating: rating,
 						questions: data.Questions,
 					},
 				},

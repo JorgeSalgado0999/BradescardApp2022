@@ -13,11 +13,11 @@ export const ReviewsTable = (props: UsersTableProps) => {
 		<table className={styles.table}>
 			<thead>
 				<tr>
-					<th className={`p4 highlight text-left`}>Nombre Agencia</th>
-					<th className={`p4 highlight text-left`}>Razón Social</th>
-					<th className={`p4 highlight text-left`}>Gerente General</th>
-					<th className={`p4 highlight text-left`}>Teléfono</th>
-					<th className={`p4 highlight text-left`}>Correo</th>
+					<th className={`p4 highlight text-left`}>Socio</th>
+					<th className={`p4 highlight text-left`}>Tienda</th>
+					<th className={`p4 highlight text-left`}>Agente</th>
+					<th className={`p4 highlight text-left`}>Fecha</th>
+					<th className={`p4 highlight text-left`}>Calificación</th>
 				</tr>
 			</thead>
 			<tbody className={styles.tableRow}>
@@ -32,7 +32,7 @@ export const ReviewsTable = (props: UsersTableProps) => {
 						manager={user.manager}
 						email={user.email}
 						phone={user.phone}
-						active={user.active}
+						active={true}
 						businessName={user.businessName}
 					/>
 				))}
